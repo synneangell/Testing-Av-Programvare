@@ -87,4 +87,43 @@
             }
             return $konto;
         }
+        
+        //registrerKunde
+        
+    function registrerKunde($kunde)
+    {
+        if($kunde->Personnummer==""){ //Hva skal vi ha her?
+            return "OK";
+        }
+        
+        return "Feil";
+            
+            
+    }
+        
+        //endreKunde
+    
+    
+    function endreKundeInfo($kunde)
+    {
+        if($kunde->Personnummer=="-1"){
+            return "Feil";
+        }
+        return "OK";
+        
+       
+    }
+    
+    
+    
+        
+        //slettKunde
+    
+    function slettKunde($personnummer)
+    {
+        if($personnummer=="-1"){
+            return "Feil";
+        }   
+        return "Ok";
+    }
     }
