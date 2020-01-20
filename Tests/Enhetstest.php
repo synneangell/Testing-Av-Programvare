@@ -425,4 +425,6 @@ class KundeTest extends PHPUnit_Framework_TestCase{
 
 //HEISANN ALLE SAMMEN!!
 
+//Hei fra Nikola
+
 ?>
