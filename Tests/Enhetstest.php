@@ -64,7 +64,7 @@ class KundeTest extends PHPUnit_Framework_TestCase{
         $this->assertEquals("Lonnskonto",$kontoListe[0]->Type); //Må man ha o for ø?
         $this->assertEquals("NOK",$kontoListe[0]->Valuta); 
         
-        //Burde det ikke stå kontoliste[1] på alle disse og kontoliste[2] på de som er enda lenger ned?
+        //Burde det ikke stå kontoListe[1] på alle disse og kontoListe[2] på de som er enda lenger ned?
         $this->assertEquals("22334412345",$kontoListe[0]->Kontonummer); 
         $this->assertEquals("01010110523",$kontoListe[0]->Personnummer); 
         $this->assertEquals("10234.5",$kontoListe[0]->Saldo); 
@@ -77,7 +77,7 @@ class KundeTest extends PHPUnit_Framework_TestCase{
         $this->assertEquals("Sparekonto",$kontoListe[0]->Type); 
         $this->assertEquals("NOK",$kontoListe[0]->Valuta); 
         
-        
+       
 
     }
     
@@ -115,7 +115,7 @@ class KundeTest extends PHPUnit_Framework_TestCase{
         // act
         $OK= $kundeLogikk->registerKunde($kunde);
         // assert
-        $this->assertEquals("Feil",$OK); 
+        $this->assertEquals("Feil",$OK);   
     }
     
     function test_hentEnKunde_OK()
@@ -226,8 +226,8 @@ class KundeTest extends PHPUnit_Framework_TestCase{
         // arrange
         $adminLogikk=new adminLogikk(new DBStub());
         $konto1 = new konto();
-        $konto1->kontonummer = "105010123456";
-        $konto1->personnummer = "111111111";  //Blir det riktig å skrive feil personnummer her?
+        $konto1->kontonummer = "105010123456"; 
+        $konto1->personnummer = "111111111";  //Blir det riktig å skrive feil personnummer her? --> må ikke personnummer være riktig her og kontomunner være feil?
         $konto1->saldo = "720";
         $konto1->type = "Lønnskonto"; //Kan vi ha ø?
         $konto1->valuta = "NOK";
@@ -265,7 +265,7 @@ class KundeTest extends PHPUnit_Framework_TestCase{
         $bankLogikk = new bankLogikk(new DBStub());
         $konto1 = new konto();
         $konto1->kontonummer = "105010123456";
-        $konto1->personnummer = "01010110523";  //Blir det riktig å skrive feil personnummer her?
+        $konto1->personnummer = "01010110523";  //Blir det riktig å skrive feil personnummer her? (tror heller man må skrive feil kontoNr her fordi det er endre konto test og ikke endre kunde
         $konto1->saldo = "720";
         $konto1->type = "Lønnskonto"; //Kan vi ha ø?
         $konto1->valuta = "NOK";
