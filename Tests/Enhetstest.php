@@ -64,6 +64,7 @@ class KundeTest extends PHPUnit_Framework_TestCase{
         $this->assertEquals("Lonnskonto",$kontoListe[0]->Type); //Må man ha o for ø?
         $this->assertEquals("NOK",$kontoListe[0]->Valuta); 
         
+        //Burde det ikke stå kontoliste[1] på alle disse og kontoliste[2] på de som er enda lenger ned?
         $this->assertEquals("22334412345",$kontoListe[0]->Kontonummer); 
         $this->assertEquals("01010110523",$kontoListe[0]->Personnummer); 
         $this->assertEquals("10234.5",$kontoListe[0]->Saldo); 
