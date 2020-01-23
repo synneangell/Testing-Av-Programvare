@@ -58,7 +58,7 @@ class KundeTest extends PHPUnit_Framework_TestCase
         // arrange
         $adminLogikk=new adminLogikk(new DBStub());
         // act
-        $kontoer= $kundeLogikk->hentAlleKonti();
+        $kontoer= $adminLogikk->hentAlleKonti();
         // assert
         $this->assertEquals("105010123456",$kontoListe[0]->Kontonummer); 
         $this->assertEquals("01010110523",$kontoListe[0]->Personnummer); 
