@@ -24,7 +24,8 @@ include_once "/Applications/XAMPP/xamppfiles/htdocs/TestingBank/DAL/bankDatabase
 
 
 
-class KundeTest extends PHPUnit_Framework_TestCase{ 
+class KundeTest extends PHPUnit_Framework_TestCase
+{ 
 
     //NB : Funksjonsnavnene under må starte med "test" !
     function test_hentAlleKunder()
@@ -41,6 +42,7 @@ class KundeTest extends PHPUnit_Framework_TestCase{
         $this->assertEquals("3270",$kunder[0]->Postnr); 
         $this->assertEquals("22224444",$kunder[0]->Telefonnr); 
         $this->assertEquals("Heihei",$kunder[0]->Passord); 
+        
         $this->assertEquals("12345678901", $kunder[1]->Personnummer);
         $this->assertEquals("Per",$kunder[1]->Fornavn); 
         $this->assertEquals("Olsen",$kunder[1]->Etternavn); 
@@ -85,16 +87,15 @@ class KundeTest extends PHPUnit_Framework_TestCase{
         // arrange
         $adminLogikk=new adminLogikk(new DBStub());
         $kunde = new kunde();
-        $kunde->personnummer = "01010110523";
+        $kunde->personnummer = "01010110523"; //denne man tester på i stuben
         $kunde->fornavn = "Lene";
         $kunde->etternavn ="Jensen";
         $kunde->adresse = "Askerveien 22";
         $kunde->postnr = "3270";
         $kunde->telefonnr = "22224444";
         $kunde->passord = "HeiHei";
-        
         // act
-        $OK= $kundeLogikk->registerKunde($kunde);
+        $OK= $adminLogikk->registerKunde($kunde);
         // assert
         $this->assertEquals("OK",$OK); 
     }
@@ -104,7 +105,7 @@ class KundeTest extends PHPUnit_Framework_TestCase{
         // arrange
         $adminLogikk=new adminLogikk(new DBStub());
         $kunde = new kunde();
-        $kunde->personnummer = "111111111";
+        $kunde->personnummer = "111111111"; 
         $kunde->fornavn = "Lene";
         $kunde->etternavn ="Jensen";
         $kunde->adresse = "Askerveien 22";
@@ -112,7 +113,7 @@ class KundeTest extends PHPUnit_Framework_TestCase{
         $kunde->telefonnr = "22224444";
         $kunde->passord = "HeiHei";
         // act
-        $OK= $kundeLogikk->registerKunde($kunde);
+        $OK= $adminLogikk->registerKunde($kunde);
         // assert
         $this->assertEquals("Feil",$OK); 
     }
@@ -138,7 +139,7 @@ class KundeTest extends PHPUnit_Framework_TestCase{
     {
         // arrange
         $bankLogikk = new bankLogikk(new DBStub());
-        $personnummer= -1;
+        $personnummer= -1; //burde denne være en String siden personnummer er String og ikke en int?
         // act
         $kunde = $bankLogikk->hentEnKunde($personnummer);
        // assert
@@ -158,7 +159,7 @@ class KundeTest extends PHPUnit_Framework_TestCase{
         $kunde->telefonnr = "22224444";
         $kunde->passord = "HeiHei";
         // act
-        $OK = $kundeLogikk->endreKunde($kunde);
+        $OK = $adminLogikk->endreKunde($kunde);
        // assert
         $this->assertEquals("OK",$OK); 
     }
@@ -176,7 +177,7 @@ class KundeTest extends PHPUnit_Framework_TestCase{
         $kunde->telefonnr = "22224444";
         $kunde->passord = "HeiHei";
         // act
-        $OK = $kundeLogikk->endreKunde($kunde);
+        $OK = $adminLogikk->endreKunde($kunde);
        // assert
         $this->assertEquals("Feil",$OK); 
     }
@@ -337,7 +338,7 @@ class KundeTest extends PHPUnit_Framework_TestCase{
         $this->assertEquals("1234",$kunder[1]->Postnr); 
         $this->assertEquals("12345678",$kunder[1]->Telefonnr); 
         $this->assertEquals("Heihei",$kunder[1]->Passord); 
-
+        
     }
     
     
@@ -354,7 +355,6 @@ class KundeTest extends PHPUnit_Framework_TestCase{
         $this->assertEquals("Meny Storo", $transaksjoner[0]->melding);
         $this->assertEquals("105010123456", $transaksjoner[0]->kontonummer);
         $this->assertEquals(0, $transaksjoner[0]->avventer);
-        
         
         $this->assertEquals("2", $transaksjoner[1]->txID);
         $this->assertEquals("20102012345", $transaksjoner[1]->fraTilKontonummer);

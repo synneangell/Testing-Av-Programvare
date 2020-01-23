@@ -30,6 +30,7 @@ class Admin
     
     function registrerKunde($kunde)
     {
+        //sette inn if8!preg_match("....",$kunde->fornavn)) på alt??
         $OK = $this->db->registrerKunde($kunde);
         return $OK;
     }
