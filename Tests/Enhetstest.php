@@ -139,7 +139,7 @@ class KundeTest extends PHPUnit_Framework_TestCase
     {
         // arrange
         $bankLogikk = new bankLogikk(new DBStub());
-        $personnummer= -1; //burde denne være en String siden personnummer er String og ikke en int?
+        $personnummer= "111111111"; //burde denne være en String siden personnummer er String og ikke en int? Har endret, stod -1 før
         // act
         $kunde = $bankLogikk->hentEnKunde($personnummer);
        // assert
