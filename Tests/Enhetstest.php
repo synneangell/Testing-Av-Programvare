@@ -1,8 +1,9 @@
 <?php
-include_once "/Applications/XAMPP/xamppfiles/htdocs/TestingBank/BLL/adminLogikk.php";
-include_once "/Applications/XAMPP/xamppfiles/htdocs/TestingBank/BLL/bankLogikk.php";
-include_once "/Applications/XAMPP/xamppfiles/htdocs/TestingBank/DAL/bankDatabaseStub.php";
-include_once "/Applications/XAMPP/xamppfiles/htdocs/TestingBank/DAL/adminDatabaseStub.php";
+include_once '../BLL/adminLogikk.php';
+include_once '../BLL/bankLogikk.php';
+include_once '/Users/martine/Documents/GitHub/testing/DAL/bankDatabaseStub.php';
+include_once '/Users/martine/Documents/GitHub/testing/DAL/adminDatabaseStub.php';
+
 
 /* Fra adminDatabasestub:
  * hentAlleKunder -
@@ -41,9 +42,9 @@ class KundeTest extends PHPUnit\Framework\TestCase
     function test_hentAlleKunder()
     {   
         // arrange
-        $adminLogikk=new adminLogikk(new DBStub());
+        $adminLogikk=new adminLogikk(new AdminDBStub());
         // act
-        $kunder= $adminLogikk->hentAlleKunder();
+        $kunder[]= $adminLogikk->hentAlleKunder();
         // assert
         $this->assertEquals("01010110523", $kunder[0]->Personnummer);
         $this->assertEquals("Lene",$kunder[0]->Fornavn); 
@@ -66,9 +67,9 @@ class KundeTest extends PHPUnit\Framework\TestCase
     function test_hentAlleKontoer()
     {   
         // arrange
-        $adminLogikk=new adminLogikk(new DBStub());
+        $adminLogikk=new adminLogikk(new AdminDBStub());
         // act
-        $kontoer= $adminLogikk->hentAlleKonti();
+        $kontoer[]= $adminLogikk->hentAlleKonti();
         // assert
         $this->assertEquals("105010123456",$kontoListe[0]->Kontonummer); 
         $this->assertEquals("01010110523",$kontoListe[0]->Personnummer); 
@@ -93,7 +94,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
     function test_registerKunde_OK()
     {
         // arrange
-        $adminLogikk=new adminLogikk(new DBStub());
+        $adminLogikk=new adminLogikk(new AdminDBStub());
         $kunde = new kunde();
         $kunde->personnummer = "01010110523"; //denne man tester på i stuben
         $kunde->fornavn = "Lene";
@@ -111,7 +112,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
     function test_registerKunde_DB_Feil()
     {
         // arrange
-        $adminLogikk=new adminLogikk(new DBStub());
+        $adminLogikk=new adminLogikk(new AdminDBStub());
         $kunde = new kunde();
         $kunde->personnummer = "111111111"; 
         $kunde->fornavn = "Lene";
@@ -158,7 +159,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
     function test_endreKundeInfo_Admin_OK()
     {
        // arrange
-        $adminLogikk = new adminLogikk(new DBStub());
+        $adminLogikk = new adminLogikk(new AdminDBStub());
         $kunde = new kunde();
         $kunde->personnummer = "01010110523";
         $kunde->fornavn = "Lene";
@@ -176,7 +177,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
     function test_endreKundeInfo_Admin_Feil()
     {
         // arrange
-        $adminLogikk = new adminLogikk(new DBStub());
+        $adminLogikk = new adminLogikk(new AdminDBStub());
         $kunde = new kunde();
         $kunde->personnummer = "111111111";
         $kunde->fornavn = "Lene";
@@ -194,7 +195,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
     function test_slettKunde_OK()
     {
         // arrange
-        $adminLogikk = new adminLogikk(new DBStub());
+        $adminLogikk = new adminLogikk(new AdminDBStub());
         $personnummer= "01010110523";
         // act
         $OK = $adminLogikk->slettKunde($personnummer);
@@ -205,7 +206,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
     function test_slettKunde_Feil()
     {
         // arrange
-        $adminLogikk = new adminLogikk(new DBStub());
+        $adminLogikk = new adminLogikk(new AdminDBStub());
         $personnummer= "111111111";
         // act
         $OK = $adminLogikk->slettKunde($personnummer);
@@ -217,7 +218,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
     {
         
         // arrange
-        $adminLogikk=new adminLogikk(new DBStub());
+        $adminLogikk=new adminLogikk(new AdminDBStub());
         $konto1 = new konto();
         $konto1->kontonummer = "105010123456";
         $konto1->personnummer = "01010110523";
@@ -235,7 +236,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
     function test_registrerKonto_feil()
     {
         // arrange
-        $adminLogikk=new adminLogikk(new DBStub());
+        $adminLogikk=new adminLogikk(new AdminDBStub());
         $konto1 = new konto();
         $konto1->kontonummer = "105010123456";
         $konto1->personnummer = "111111111";  //Blir det riktig å skrive feil personnummer her?
@@ -251,7 +252,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
     function test_slettKonto_OK()
     {
         // arrange
-        $adminLogikk = new adminLogikk(new DBStub());
+        $adminLogikk = new adminLogikk(new AdminDBStub());
         $kontonummer= "105010123456";
         // act
         $OK = $adminLogikk->slettKonto($kontonummer);
@@ -262,7 +263,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
     function test_slettKonto_Feil()
     {
         // arrange
-        $adminLogikk = new adminLogikk(new DBStub());
+        $adminLogikk = new adminLogikk(new AdminDBStub());
         $kontonummer= "111111111";
         // act
         $OK = $adminLogikk->slettKonto($kontonummer);
@@ -274,7 +275,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
     {
         
           // arrange
-        $adminLogikk = new adminLogikk(new DBStub());
+        $adminLogikk = new adminLogikk(new AdminDBStub());
         $konto1 = new konto();
         $konto1->kontonummer = "105010123456";
         $konto1->personnummer = "01010110523";  //Blir det riktig å skrive feil personnummer her?
@@ -306,7 +307,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
     
     function hentAlleKonti_OK()
     {
-        $adminLogikk=new adminLogikk(new DBStub());
+        $adminLogikk=new adminLogikk(new AdminDBStub());
         // act
         $kontoer[]= $adminLogikk->hentAlleKonti();
         // assert
@@ -580,6 +581,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
     
     function test_registrerBetaling_Kontonummer_Feil() 
     { 
+        $bankLogikk=new bankLogikk(new DBStub());
         $transaksjon= new transaksjon();
         $transaksjon->txtID = 1;
         $transaksjon->fraTilKontonummer = "20102012345";

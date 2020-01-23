@@ -12,7 +12,7 @@ class hentTransaksjonerTest extends PHPUnit\Framework\TestCase {
         $kontoNr = "10502023523";
         $fraDato = '2015-03-27';
         $tilDato = '2015-03-22';
-        $bank=new Bank(new BankDBStub());
+        $bank=new bankLogikk(new DBStub());
         // act
         $konto= $bank->hentTransaksjoner($kontoNr, $fraDato, $tilDato);
         // assert
@@ -25,7 +25,7 @@ class hentTransaksjonerTest extends PHPUnit\Framework\TestCase {
         $kontoNr = "10502023523";
         $fraDato = '2015-03-20';
         $tilDato = '2015-03-22';
-        $bank=new Bank(new BankDBStub());
+        $bank=new bankLogikk(new DBStub());
         // act
         $konto= $bank->hentTransaksjoner($kontoNr, $fraDato, $tilDato);
         // assert
@@ -44,7 +44,7 @@ class hentTransaksjonerTest extends PHPUnit\Framework\TestCase {
         $kontoNr = "10502023523";
         $fraDato = '2015-03-26';
         $tilDato = '2015-03-26';
-        $bank=new Bank(new BankDBStub());
+        $bank=new bankLogikk(new DBStub());
         // act
         $konto= $bank->hentTransaksjoner($kontoNr, $fraDato, $tilDato);
         // assert
@@ -64,7 +64,7 @@ class hentTransaksjonerTest extends PHPUnit\Framework\TestCase {
         $kontoNr = "10502023523";
         $fraDato = '2015-03-27';
         $tilDato = '2015-03-30';
-        $bank=new Bank(new BankDBStub());
+        $bank=new bankLogikk(new DBStub());
         // act
         $konto= $bank->hentTransaksjoner($kontoNr, $fraDato, $tilDato);
         // assert
@@ -88,7 +88,7 @@ class hentTransaksjonerTest extends PHPUnit\Framework\TestCase {
         $kontoNr = "10502023523";
         $fraDato = '2015-03-26';
         $tilDato = '2015-03-30';
-        $bank=new Bank(new BankDBStub());
+        $bank=new bankLogikk(new DBStub());
         // act
         $konto= $bank->hentTransaksjoner($kontoNr, $fraDato, $tilDato);
         // assert

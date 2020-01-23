@@ -1,6 +1,6 @@
 <?php
     include_once '../Model/domeneModell.php';
-    class BankDBStub
+    class DBStub
     {
         function hentEnKunde($personnummer)
         {

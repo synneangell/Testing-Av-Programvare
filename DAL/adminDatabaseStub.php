@@ -2,7 +2,8 @@
 include_once "../Model/domeneModell.php";
 
 //hentAlleKunder
-
+class AdminDBStub
+{
 function hentAlleKunder()
     {
       $alleKunder =array();
@@ -122,4 +123,5 @@ function hentAlleKunder()
 //endreKonto
 //hentAlleKonti
 //slettKonto
+}
 ?>

@@ -1,7 +1,8 @@
 <?php
-include_once '../DAL/bankDatabase.php';
-include_once '../DAL/bankDatabaseStub.php';
-class Bank
+include_once '/Users/martine/Documents/GitHub/testing/DAL/bankDatabase.php';
+include_once '/Users/martine/Documents/GitHub/testing/DAL/bankDatabaseStub.php';
+
+class bankLogikk
 {
     private $db;
     function __construct($innDb=null)
