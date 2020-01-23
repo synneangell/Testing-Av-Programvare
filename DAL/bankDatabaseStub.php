@@ -110,13 +110,10 @@
             return "Feil";
         }
         return "OK";
-        
-       
+
     }
     
-    
-    
-        
+   
         //slettKunde
     
     function slettKunde($personnummer)
@@ -124,6 +121,6 @@
         if($personnummer=="-1"){
             return "Feil";
         }   
-        return "Ok";
+        return "OK";
     }
     }
