@@ -573,13 +573,14 @@ class KundeTest extends PHPUnit\Framework\TestCase
     { 
         $bankLogikk=new bankLogikk(new DBStub());
         $transaksjon= new transaksjon();
-        $transaksjon->TxtID = 1;
+        $transaksjon->TxID = 1;
         $transaksjon->FraTilKontonummer = "20102012345";
         $transaksjon->Beløp = -100.5;
         $transaksjon->Dato = "2015-03-15";
         $transaksjon->Melding = "Meny Storo";
-        $transaksjon->Kontonummer = "105010123456";
-        $transaksjon->Transaksjon = [1];
+        $kontoNr= "105010123456";
+        //$transaksjon->Kontonummer = "105010123456";
+        $transaksjon->Avventer = 0;
         // act
         $OK= $bankLogikk->registrerBetaling($kontoNr, $transaksjon);
         // assert
@@ -591,13 +592,14 @@ class KundeTest extends PHPUnit\Framework\TestCase
     { 
         $bankLogikk=new bankLogikk(new DBStub());
         $transaksjon= new transaksjon();
-        $transaksjon->TxtID = 1;
+        $transaksjon->TxID = 1;
         $transaksjon->FraTilKontonummer = "20102012345";
         $transaksjon->Beløp = -100.5;
         $transaksjon->Dato = "2015-03-15";
         $transaksjon->Melding = "Meny Storo";
-        $transaksjon->Kontonummer = "111111111";
-        $transaksjon->Transaksjon = [1];
+        $kontoNr= "11111111111";
+        //$transaksjon->Kontonummer = "111111111";
+        $transaksjon->Avventer = 0;
         // act
         $OK= $bankLogikk->registrerBetaling($kontoNr, $transaksjon);
         // assert

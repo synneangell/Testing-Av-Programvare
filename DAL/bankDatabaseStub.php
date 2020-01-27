@@ -150,6 +150,7 @@
     }
     
     function hentKonti($personnummer){
+        
         if($personnummer=="11111111111"){
             return "Feil";
         }
@@ -158,6 +159,13 @@
     
     function hentSaldi($personnummer){
         if($personnummer=="11111111111"){
+            return "Feil";
+        }
+        return "OK";
+    }
+    
+    function registrerBetaling($kontoNr, $transaksjon){
+        if($kontoNr=="11111111111"){
             return "Feil";
         }
         return "OK";
