@@ -1,6 +1,11 @@
 <?php
+<<<<<<< HEAD
 include_once '..DAL/bankDatabase.php';
 include_once '..DAL/bankDatabaseStub.php';
+=======
+include_once '../DAL/bankDatabase.php';
+include_once '../DAL/bankDatabaseStub.php';
+>>>>>>> 7462cd6384606a6b778b9d93ae4714316b8bf157
 
 class bankLogikk
 {
