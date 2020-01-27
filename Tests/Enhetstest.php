@@ -45,7 +45,6 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $adminLogikk=new adminLogikk(new AdminDBStub());
         // act
         $kunder[]= $adminLogikk->hentAlleKunder();
-        
         // assert
         $this->assertEquals("01010110523", $kunder[0]->Personnummer);
         $this->assertEquals("Lene",$kunder[0]->Fornavn); 
@@ -61,10 +60,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $this->assertEquals("Osloveien 82",$kunder[1]->Adresse); 
         $this->assertEquals("1234",$kunder[1]->Postnr); 
         $this->assertEquals("12345678",$kunder[1]->Telefonnr); 
-        $this->assertEquals("Heihei",$kunder[1]->Passord); 
-        
-        
-        
+        $this->assertEquals("Heihei",$kunder[1]->Passord);    
 
     }
     
@@ -722,7 +718,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $this->assertEquals("Askerveien 22",$kunde->Adresse); 
         $this->assertEquals("3270",$kunde->Postnr); 
         $this->assertEquals("22224444",$kunde->Telefonnr); 
-        $this->assertEquals("Heihei",$kunde->Passord); 
+        $this->assertEquals("HeiHei",$kunde->Passord); 
     }
     
     function test_hentKundeInfo_Bank_Feil()
