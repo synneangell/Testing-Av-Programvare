@@ -67,8 +67,8 @@ class bankLogikk
     
     function utforBetaling($TxID)
     {
-        $ok = $this->db->utforBetaling($TxID);
-        return $ok;
+        $OK = $this->db->utforBetaling($TxID);
+        return $OK;
     }
     
     function endreKundeInfo($kunde)

@@ -233,7 +233,7 @@
         $betaling[8]->dato="2012-12-12";
         $betaling[8]->melding="Hopp";
         
-        return betaling;
+        return $betaling;
                
     }
     
