@@ -164,10 +164,84 @@
         return "OK";
     }
     
+    //
+    
     function registrerBetaling($kontoNr, $transaksjon){
         if($kontoNr=="11111111111"){
             return "Feil";
         }
         return "OK";
+        
     }
+     
+    function hentBetalinger($personnummer){
+        $betaling[] = new transaksjon();
+        if($personnummer=="11111111111"){
+            return "Feil";
+        }
+        $betaling[0]->fraTilKontonummer="20102012345";
+        $betaling[0]->avventer=0;
+        $betaling[0]->belop=-100.5;
+        $betaling[0]->dato="2015-03-15";
+        $betaling[0]->melding="Meny Storo";
+        
+        $betaling[1]->fraTilKontonummer="20102012345";
+        $betaling[1]->avventer=0;
+        $betaling[1]->belop=-400.4;
+        $betaling[1]->dato="2015-03-20";
+        $betaling[1]->melding="Innebtaling";
+        
+        $betaling[2]->fraTilKontonummer="20102012345";
+        $betaling[2]->avventer=1;
+        $betaling[2]->belop=-1400.7;
+        $betaling[2]->dato="2015-03-13";
+        $betaling[2]->melding="Husleie";
+         
+        $betaling[3]->fraTilKontonummer="20102012347";
+        $betaling[3]->avventer=0;
+        $betaling[3]->belop=-5000.5;
+        $betaling[3]->dato="2015-03-30";
+        $betaling[3]->melding="Skatt";
+
+        $betaling[4]->fraTilKontonummer="20102012345";
+        $betaling[4]->avventer=0;
+        $betaling[4]->belop=345.56;
+        $betaling[4]->dato="2015-03-13";
+        $betaling[4]->melding="Test";
+        
+        $betaling[5]->fraTilKontonummer="12312345";
+        $betaling[5]->avventer=1;
+        $betaling[5]->belop=1234;
+        $betaling[5]->dato="2012-12-12";
+        $betaling[5]->melding="Melding";
+
+        $betaling[6]->fraTilKontonummer="345678908";
+        $betaling[6]->avventer=0;
+        $betaling[6]->belop=3000;
+        $betaling[6]->dato="2012-12-12";
+        $betaling[6]->melding="";
+        
+        $betaling[7]->fraTilKontonummer="234534678";
+        $betaling[7]->avventer=0;
+        $betaling[7]->belop=15;
+        $betaling[7]->dato="2012-12-12";
+        $betaling[7]->melding="Hei";
+        
+        $betaling[8]->fraTilKontonummer="1234254365";
+        $betaling[8]->avventer=0;
+        $betaling[8]->belop=125;
+        $betaling[8]->dato="2012-12-12";
+        $betaling[8]->melding="Hopp";
+        
+        return betaling;
+               
+    }
+    
+    function utforBetaling($TxID){
+        if($TxID=="-1"){
+            return "Feil";
+        }
+        return "OK";
+    }
+    
     }
