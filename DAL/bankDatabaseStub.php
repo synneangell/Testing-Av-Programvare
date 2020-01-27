@@ -175,7 +175,7 @@
     }
      
     function hentBetalinger($personnummer){
-        $betaling[] = new transaksjon();
+        $betaling= array();
         if($personnummer=="11111111111"){
             return "Feil";
         }
@@ -244,4 +244,4 @@
         return "OK";
     }
     
-    }
+}
