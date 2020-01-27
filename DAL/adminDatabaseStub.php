@@ -67,7 +67,7 @@ function hentAlleKunder()
     
     function registerKonto($konto)
     {
-        if($konto->kontonummer==""){ //Hva skal vi ha her?
+        if($konto->Kontonummer==""){ //Hva skal vi ha her?
             return "OK";
         }
         return "Feil";

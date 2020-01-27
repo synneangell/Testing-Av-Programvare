@@ -109,14 +109,14 @@
     function hentKundeInfo($personnummer) 
     {
         $enKunde = new kunde();
-        $enKunde->personnummer=$personnummer;
+        $enKunde->Personnummer=$personnummer;
         //$enKunde->personnummer="01010110523";
-        $enKunde->fornavn = "Lene";
-        $enKunde->etternavn ="Jensen";
-        $enKunde->adresse = "Askerveien 22";
-        $enKunde->postnr = "3270";
-        $enKunde->telefonnr = "22224444";
-        $enKunde->passord="HeiHei";
+        $enKunde->Fornavn = "Lene";
+        $enKunde->Etternavn ="Jensen";
+        $enKunde->Adresse = "Askerveien 22";
+        $enKunde->Postnr = "3270";
+        $enKunde->Telefonnr = "22224444";
+        $enKunde->Passord="HeiHei";
         return $enKunde;
     }
         

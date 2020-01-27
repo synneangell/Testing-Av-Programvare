@@ -547,23 +547,23 @@ class KundeTest extends PHPUnit\Framework\TestCase
         // act
         $saldoer[]= $bankLogikk->hentSaldi($personnummer);
         // assert
-        $this->assertEquals("105010123456", $kontoer[0]->Kontonummer);
-        $this->assertEquals("01010110523",$kontoer[0]->Personnummer); 
-        $this->assertEquals(720 ,$kontoer[0]->Saldo); 
-        $this->assertEquals("Lønnskonto",$kontoer[0]->Type); 
-        $this->assertEquals("NOK",$kontoer[0]->Valuta);       
+        $this->assertEquals("105010123456", $saldoer[0]->Kontonummer);
+        $this->assertEquals("01010110523",$saldoer[0]->Personnummer); 
+        $this->assertEquals(720 ,$saldoer[0]->Saldo); 
+        $this->assertEquals("Lønnskonto",$saldoer[0]->Type); 
+        $this->assertEquals("NOK",$saldoer[0]->Valuta);       
                 
-        $this->assertEquals("22334412345", $kontoer[1]->Kontonummer);
-        $this->assertEquals("01010110523",$kontoer[1]->Personnummer); 
-        $this->assertEquals(10234.5 ,$kontoer[1]->Saldo); 
-        $this->assertEquals("Brukskonto",$kontoer[1]->Type); 
-        $this->assertEquals("NOK",$kontoer[1]->Valuta);
+        $this->assertEquals("22334412345", $saldoer[1]->Kontonummer);
+        $this->assertEquals("01010110523",$saldoer[1]->Personnummer); 
+        $this->assertEquals(10234.5 ,$saldoer[1]->Saldo); 
+        $this->assertEquals("Brukskonto",$saldoer[1]->Type); 
+        $this->assertEquals("NOK",$saldoer[1]->Valuta);
         
-        $this->assertEquals("105020123456", $kontoer[2]->Kontonummer);
-        $this->assertEquals("01010110523",$kontoer[2]->Personnummer); 
-        $this->assertEquals(100500 ,$kontoer[2]->Saldo); 
-        $this->assertEquals("Sparekonto",$kontoer[2]->Type); 
-        $this->assertEquals("NOK",$kontoer[2]->Valuta);
+        $this->assertEquals("105020123456", $saldoer[2]->Kontonummer);
+        $this->assertEquals("01010110523",$saldoer[2]->Personnummer); 
+        $this->assertEquals(100500 ,$saldoer[2]->Saldo); 
+        $this->assertEquals("Sparekonto",$saldoer[2]->Type); 
+        $this->assertEquals("NOK",$saldoer[2]->Valuta);
 
     }
    
@@ -691,7 +691,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $bankLogikk=new bankLogikk(new DBStub());
         $txID= 1;
         // act
-        $OK = $bankLogikk->utforBetaling($TxID);
+        $OK = $bankLogikk->utforBetaling($txID);
         // assert
         $this->assertEquals("OK", $OK);
     }
