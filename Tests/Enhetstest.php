@@ -581,7 +581,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $transaksjon->Kontonummer = "105010123456";
         $transaksjon->Transaksjon = [1];
         // act
-        $OK= $bankLogikk->registrerBetaling($transaksjon);
+        $OK= $bankLogikk->registrerBetaling($kontoNr, $transaksjon);
         // assert
         $this->assertEquals("OK",$OK);
 
@@ -599,7 +599,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $transaksjon->Kontonummer = "111111111";
         $transaksjon->Transaksjon = [1];
         // act
-        $OK= $bankLogikk->registrerBetaling($transaksjon);
+        $OK= $bankLogikk->registrerBetaling($kontoNr, $transaksjon);
         // assert
         $this->assertEquals("Feil",$OK);
     }
