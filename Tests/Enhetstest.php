@@ -104,7 +104,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $kunde->Telefonnr = "22224444";
         $kunde->Passord = "HeiHei";
         // act
-        $OK= $adminLogikk->registerKunde($kunde);
+        $OK= $adminLogikk->registrerKunde($kunde);
         // assert
         $this->assertEquals("OK",$OK); 
     }
@@ -122,7 +122,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $kunde->Telefonnr = "22224444";
         $kunde->Passord = "HeiHei";
         // act
-        $OK= $adminLogikk->registerKunde($kunde);
+        $OK= $adminLogikk->registrerKunde($kunde);
         // assert
         $this->assertEquals("Feil",$OK); 
     }
@@ -227,7 +227,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $konto1->Valuta = "NOK";
         
         // act
-        $OK= $adminLogikk->registerKonto($konto);
+        $OK= $adminLogikk->registrerKonto($konto);
         // assert
         $this->assertEquals("OK",$OK); 
         
@@ -601,7 +601,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $bankLogikk=new bankLogikk(new DBStub());
         $personnummer = "01010110523";
         // act
-        $transaksjoner[]= $bankLogikk->hentBetaling($personnummer);
+        $transaksjoner[]= $bankLogikk->hentBetalinger($personnummer);
         // assert
         
         $this->assertEquals(1, $transaksjoner[0]->TxID);

@@ -23,6 +23,7 @@ class bankLogikk
         return $konto;
     }
     
+    
     function sjekkLoggInn($personnummer,$passord)
     {
         if(!preg_match("/[0-9]{11}/", $personnummer))
