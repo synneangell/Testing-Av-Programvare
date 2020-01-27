@@ -7,6 +7,8 @@ class AdminDBStub
 function hentAlleKunder()
     {
       $alleKunder =array();
+      
+      $kunde1= new Kunde();
       $kunde1->Personnummer="01010110523";
       $kunde1->Fornavn="Lene";
       $kunde1->Etternavn="Jensen";
@@ -16,6 +18,8 @@ function hentAlleKunder()
       $kunde1->Passord="HeiHei";
       
       $alleKunder[]=$kunde1;
+      
+      $kunde2= new Kunde();
       
       $kunde2->Personnummer="12345678901";
       $kunde2->Fornavn="Per";
@@ -80,7 +84,7 @@ function hentAlleKunder()
     function hentAlleKonti()
     {
         $kontoListe= array();
-        
+        $konto1=new konto();
         $konto1->Kontonummer="105010123456";
         $konto1->Personnummer="01010110523";
         $konto1->Saldo=720;
@@ -89,6 +93,7 @@ function hentAlleKunder()
         
         $kontoListe[]=$konto1;
         
+        $konto2=new konto();
         $konto2->Kontonummer="22334412345";
         $konto2->Personnummer="01010110523";
         $konto2->Saldo=10234.5;
@@ -96,6 +101,7 @@ function hentAlleKunder()
         $konto2->Valuta="NOK";
         
         $kontoListe[]=$konto2;
+        $konto3=new konto();
         
         $konto3->Kontonummer="105020123456";
         $konto3->Personnummer="01010110523";
@@ -104,6 +110,7 @@ function hentAlleKunder()
         $konto3->Valuta="NOK";
         
         $kontoListe[]=$konto3;
+        
         
         return $kontoListe;
     }

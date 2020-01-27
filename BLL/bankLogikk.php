@@ -1,6 +1,6 @@
 <?php
-include_once '/Users/martine/Documents/GitHub/testing/DAL/bankDatabase.php';
-include_once '/Users/martine/Documents/GitHub/testing/DAL/bankDatabaseStub.php';
+include_once '..DAL/bankDatabase.php';
+include_once '..DAL/bankDatabaseStub.php';
 
 class bankLogikk
 {

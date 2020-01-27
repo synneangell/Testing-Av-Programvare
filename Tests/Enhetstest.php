@@ -45,6 +45,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $adminLogikk=new adminLogikk(new AdminDBStub());
         // act
         $kunder[]= $adminLogikk->hentAlleKunder();
+        
         // assert
         $this->assertEquals("01010110523", $kunder[0]->Personnummer);
         $this->assertEquals("Lene",$kunder[0]->Fornavn); 
@@ -69,7 +70,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
         // arrange
         $adminLogikk=new adminLogikk(new AdminDBStub());
         // act
-        $kontoer[]= $adminLogikk->hentAlleKonti();
+        $kontoListe[]= $adminLogikk->hentAlleKonti();
         // assert
         $this->assertEquals("105010123456",$kontoListe[0]->Kontonummer); 
         $this->assertEquals("01010110523",$kontoListe[0]->Personnummer); 
