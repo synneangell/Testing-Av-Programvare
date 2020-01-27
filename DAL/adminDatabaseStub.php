@@ -26,7 +26,7 @@ function hentAlleKunder()
       $kunde2->Passord="HeiHei";
       
       $alleKunder[]=$kunde2;
-      
+
       return $alleKunder;
     }
     

@@ -1,8 +1,8 @@
 <?php
 include_once '../BLL/adminLogikk.php';
 include_once '../BLL/bankLogikk.php';
-include_once '/Users/martine/Documents/GitHub/testing/DAL/bankDatabaseStub.php';
-include_once '/Users/martine/Documents/GitHub/testing/DAL/adminDatabaseStub.php';
+include_once '../DAL/bankDatabaseStub.php';
+include_once '../DAL/adminDatabaseStub.php';
 
 
 /* Fra adminDatabasestub:
@@ -96,13 +96,13 @@ class KundeTest extends PHPUnit\Framework\TestCase
         // arrange
         $adminLogikk=new adminLogikk(new AdminDBStub());
         $kunde = new kunde();
-        $kunde->personnummer = "01010110523"; //denne man tester på i stuben
-        $kunde->fornavn = "Lene";
-        $kunde->etternavn ="Jensen";
-        $kunde->adresse = "Askerveien 22";
-        $kunde->postnr = "3270";
-        $kunde->telefonnr = "22224444";
-        $kunde->passord = "HeiHei";
+        $kunde->Personnummer = "01010110523"; //denne man tester på i stuben
+        $kunde->Fornavn = "Lene";
+        $kunde->Etternavn ="Jensen";
+        $kunde->Adresse = "Askerveien 22";
+        $kunde->Postnr = "3270";
+        $kunde->Telefonnr = "22224444";
+        $kunde->Passord = "HeiHei";
         // act
         $OK= $adminLogikk->registerKunde($kunde);
         // assert
@@ -114,13 +114,13 @@ class KundeTest extends PHPUnit\Framework\TestCase
         // arrange
         $adminLogikk=new adminLogikk(new AdminDBStub());
         $kunde = new kunde();
-        $kunde->personnummer = "111111111"; 
-        $kunde->fornavn = "Lene";
-        $kunde->etternavn ="Jensen";
-        $kunde->adresse = "Askerveien 22";
-        $kunde->postnr = "3270";
-        $kunde->telefonnr = "22224444";
-        $kunde->passord = "HeiHei";
+        $kunde->Personnummer = "111111111"; 
+        $kunde->Fornavn = "Lene";
+        $kunde->Etternavn ="Jensen";
+        $kunde->Adresse = "Askerveien 22";
+        $kunde->Postnr = "3270";
+        $kunde->Telefonnr = "22224444";
+        $kunde->Passord = "HeiHei";
         // act
         $OK= $adminLogikk->registerKunde($kunde);
         // assert
@@ -161,15 +161,15 @@ class KundeTest extends PHPUnit\Framework\TestCase
        // arrange
         $adminLogikk = new adminLogikk(new AdminDBStub());
         $kunde = new kunde();
-        $kunde->personnummer = "01010110523";
-        $kunde->fornavn = "Lene";
-        $kunde->etternavn ="Jensen";
-        $kunde->adresse = "Askerveien 22";
-        $kunde->postnr = "3270";
-        $kunde->telefonnr = "22224444";
-        $kunde->passord = "HeiHei";
+        $kunde->Personnummer = "01010110523";
+        $kunde->Fornavn = "Lene";
+        $kunde->Etternavn ="Jensen";
+        $kunde->Adresse = "Askerveien 22";
+        $kunde->Postnr = "3270";
+        $kunde->Telefonnr = "22224444";
+        $kunde->Passord = "HeiHei";
         // act
-        $OK = $adminLogikk->endreKunde($kunde);
+        $OK = $adminLogikk->endreKundeInfo($kunde);
        // assert
         $this->assertEquals("OK",$OK); 
     }
@@ -179,15 +179,15 @@ class KundeTest extends PHPUnit\Framework\TestCase
         // arrange
         $adminLogikk = new adminLogikk(new AdminDBStub());
         $kunde = new kunde();
-        $kunde->personnummer = "111111111";
-        $kunde->fornavn = "Lene";
-        $kunde->etternavn ="Jensen";
-        $kunde->adresse = "Askerveien 22";
-        $kunde->postnr = "3270";
-        $kunde->telefonnr = "22224444";
-        $kunde->passord = "HeiHei";
+        $kunde->Personnummer = "111111111";
+        $kunde->Fornavn = "Lene";
+        $kunde->Etternavn ="Jensen";
+        $kunde->Adresse = "Askerveien 22";
+        $kunde->Postnr = "3270";
+        $kunde->Telefonnr = "22224444";
+        $kunde->Passord = "HeiHei";
         // act
-        $OK = $adminLogikk->endreKunde($kunde);
+        $OK = $adminLogikk->endreKundeInfo($kunde);
        // assert
         $this->assertEquals("Feil",$OK); 
     }
@@ -220,11 +220,11 @@ class KundeTest extends PHPUnit\Framework\TestCase
         // arrange
         $adminLogikk=new adminLogikk(new AdminDBStub());
         $konto1 = new konto();
-        $konto1->kontonummer = "105010123456";
-        $konto1->personnummer = "01010110523";
-        $konto1->saldo = "720";
-        $konto1->type = "Lønnskonto"; //Kan vi ha ø?
-        $konto1->valuta = "NOK";
+        $konto1->Kontonummer = "105010123456";
+        $konto1->Personnummer = "01010110523";
+        $konto1->Saldo = "720";
+        $konto1->Type = "Lønnskonto"; //Kan vi ha ø?
+        $konto1->Valuta = "NOK";
         
         // act
         $OK= $adminLogikk->registerKonto($konto);
@@ -238,11 +238,11 @@ class KundeTest extends PHPUnit\Framework\TestCase
         // arrange
         $adminLogikk=new adminLogikk(new AdminDBStub());
         $konto1 = new konto();
-        $konto1->kontonummer = "105010123456";
-        $konto1->personnummer = "111111111";  //Blir det riktig å skrive feil personnummer her?
-        $konto1->saldo = "720";
-        $konto1->type = "Lønnskonto"; //Kan vi ha ø?
-        $konto1->valuta = "NOK";
+        $konto1->Kontonummer = "105010123456";
+        $konto1->Personnummer = "111111111";  //Blir det riktig å skrive feil personnummer her?
+        $konto1->Saldo = "720";
+        $konto1->Type = "Lønnskonto"; //Kan vi ha ø?
+        $konto1->Valuta = "NOK";
         // act
         $OK= $adminLogikk->registerKonto($konto);
         // assert
@@ -277,11 +277,11 @@ class KundeTest extends PHPUnit\Framework\TestCase
           // arrange
         $adminLogikk = new adminLogikk(new AdminDBStub());
         $konto1 = new konto();
-        $konto1->kontonummer = "105010123456";
-        $konto1->personnummer = "01010110523";  //Blir det riktig å skrive feil personnummer her?
-        $konto1->saldo = "720";
-        $konto1->type = "Lønnskonto"; //Kan vi ha ø?
-        $konto1->valuta = "NOK";
+        $konto1->Kontonummer = "105010123456";
+        $konto1->Personnummer = "01010110523";  //Blir det riktig å skrive feil personnummer her?
+        $konto1->Saldo = "720";
+        $konto1->Type = "Lønnskonto"; //Kan vi ha ø?
+        $konto1->Valuta = "NOK";
         // act
         $OK = $adminLogikk->endreKonto($konto1);
        // assert
@@ -294,11 +294,11 @@ class KundeTest extends PHPUnit\Framework\TestCase
         // arrange
         $bankLogikk = new bankLogikk(new DBStub());
         $konto1 = new konto1();
-        $konto1->kontonummer = "10";
-        $konto1->personnummer = "01010110523";  //Blir det riktig å skrive feil personnummer her?
-        $konto1->saldo = "720";
-        $konto1->type = "Lønnskonto"; //Kan vi ha ø?
-        $konto1->valuta = "NOK";    
+        $konto1->Kontonummer = "10";
+        $konto1->Personnummer = "01010110523";  //Blir det riktig å skrive feil personnummer her?
+        $konto1->Saldo = "720";
+        $konto1->Type = "Lønnskonto"; //Kan vi ha ø?
+        $konto1->Valuta = "NOK";    
         // act
         $OK = $bankLogikk->endreKonto($konto1);
        // assert
@@ -311,23 +311,23 @@ class KundeTest extends PHPUnit\Framework\TestCase
         // act
         $kontoer[]= $adminLogikk->hentAlleKonti();
         // assert
-        $this->assertEquals("105010123456", $kontoer[0]->kontonummer);
-        $this->assertEquals("01010110523",$kontoer[0]->personnummer); 
-        $this->assertEquals(720 ,$kontoer[0]->saldo); 
-        $this->assertEquals("Lønnskonto",$kontoer[0]->type); 
-        $this->assertEquals("NOK",$kontoer[0]->valuta); 
+        $this->assertEquals("105010123456", $kontoer[0]->Kontonummer);
+        $this->assertEquals("01010110523",$kontoer[0]->Personnummer); 
+        $this->assertEquals(720 ,$kontoer[0]->Saldo); 
+        $this->assertEquals("Lønnskonto",$kontoer[0]->Type); 
+        $this->assertEquals("NOK",$kontoer[0]->Valuta); 
         
-        $this->assertEquals("22334412345", $kontoer[1]->kontonummer);
-        $this->assertEquals("01010110523",$kontoer[1]->personnummer); 
-        $this->assertEquals(10234.5 ,$kontoer[1]->saldo); 
-        $this->assertEquals("Brukskonto",$kontoer[1]->type); 
-        $this->assertEquals("NOK",$kontoer[1]->valuta);
+        $this->assertEquals("22334412345", $kontoer[1]->Kontonummer);
+        $this->assertEquals("01010110523",$kontoer[1]->Personnummer); 
+        $this->assertEquals(10234.5 ,$kontoer[1]->Saldo); 
+        $this->assertEquals("Brukskonto",$kontoer[1]->Type); 
+        $this->assertEquals("NOK",$kontoer[1]->Valuta);
         
-        $this->assertEquals("105020123456", $kontoer[2]->kontonummer);
-        $this->assertEquals("01010110523",$kontoer[2]->personnummer); 
-        $this->assertEquals(100500 ,$kontoer[2]->saldo); 
-        $this->assertEquals("Sparekonto",$kontoer[2]->type); 
-        $this->assertEquals("NOK",$kontoer[2]->valuta);
+        $this->assertEquals("105020123456", $kontoer[2]->Kontonummer);
+        $this->assertEquals("01010110523",$kontoer[2]->Personnummer); 
+        $this->assertEquals(100500 ,$kontoer[2]->Saldo); 
+        $this->assertEquals("Sparekonto",$kontoer[2]->Type); 
+        $this->assertEquals("NOK",$kontoer[2]->Valuta);
         
     }
     
@@ -365,77 +365,77 @@ class KundeTest extends PHPUnit\Framework\TestCase
         // act
         $transaksjoner= $bankLogikk->hentTransaksjoner();
         
-        $this->assertEquals("1", $transaksjoner[0]->txID);
-        $this->assertEquals("20102012345", $transaksjoner[0]->fraTilKontonummer);
-        $this->assertEquals(-100.5, $transaksjoner[0]->belop);
-        $this->assertEquals("2015-03-15", $transaksjoner[0]->dato);
-        $this->assertEquals("Meny Storo", $transaksjoner[0]->melding);
-        $this->assertEquals("105010123456", $transaksjoner[0]->kontonummer);
-        $this->assertEquals(0, $transaksjoner[0]->avventer);
+        $this->assertEquals("1", $transaksjoner[0]->TxID);
+        $this->assertEquals("20102012345", $transaksjoner[0]->FraTilKontonummer);
+        $this->assertEquals(-100.5, $transaksjoner[0]->Belop);
+        $this->assertEquals("2015-03-15", $transaksjoner[0]->Dato);
+        $this->assertEquals("Meny Storo", $transaksjoner[0]->Melding);
+        $this->assertEquals("105010123456", $transaksjoner[0]->Kontonummer);
+        $this->assertEquals(0, $transaksjoner[0]->Avventer);
         
-        $this->assertEquals("2", $transaksjoner[1]->txID);
-        $this->assertEquals("20102012345", $transaksjoner[1]->fraTilKontonummer);
-        $this->assertEquals(400.4, $transaksjoner[1]->belop);
-        $this->assertEquals("2015-03-20", $transaksjoner[1]->dato);
-        $this->assertEquals("Innebtaling", $transaksjoner[1]->melding);
-        $this->assertEquals("105010123456", $transaksjoner[1]->kontonummer);
-        $this->assertEquals(0, $transaksjoner[1]->avventer);
+        $this->assertEquals("2", $transaksjoner[1]->TxID);
+        $this->assertEquals("20102012345", $transaksjoner[1]->FraTilKontonummer);
+        $this->assertEquals(400.4, $transaksjoner[1]->Belop);
+        $this->assertEquals("2015-03-20", $transaksjoner[1]->Dato);
+        $this->assertEquals("Innebtaling", $transaksjoner[1]->Melding);
+        $this->assertEquals("105010123456", $transaksjoner[1]->Kontonummer);
+        $this->assertEquals(0, $transaksjoner[1]->Avventer);
         
-        $this->assertEquals("3", $transaksjoner[1]->txID);
-        $this->assertEquals("20102012345", $transaksjoner[1]->fraTilKontonummer);
-        $this->assertEquals(-1400.7, $transaksjoner[1]->belop);
-        $this->assertEquals("2015-03-13", $transaksjoner[1]->dato);
-        $this->assertEquals("Husleie", $transaksjoner[1]->melding);
-        $this->assertEquals("55551166677", $transaksjoner[1]->kontonummer);
+        $this->assertEquals("3", $transaksjoner[1]->TxID);
+        $this->assertEquals("20102012345", $transaksjoner[1]->FraTilKontonummer);
+        $this->assertEquals(-1400.7, $transaksjoner[1]->Belop);
+        $this->assertEquals("2015-03-13", $transaksjoner[1]->Dato);
+        $this->assertEquals("Husleie", $transaksjoner[1]->Melding);
+        $this->assertEquals("55551166677", $transaksjoner[1]->Kontonummer);
+        $this->assertEquals(1, $transaksjoner[1]->Avventer);
+        
+        $this->assertEquals("4", $transaksjoner[1]->TxID);
+        $this->assertEquals("20102012347", $transaksjoner[1]->FraTilKontonummer);
+        $this->assertEquals(-5000.5, $transaksjoner[1]->Belop);
+        $this->assertEquals("2015-03-30", $transaksjoner[1]->Dato);
+        $this->assertEquals("Skatt", $transaksjoner[1]->Melding);
+        $this->assertEquals("105010123456", $transaksjoner[1]->Kontonummer);
+        $this->assertEquals(0, $transaksjoner[1]->Avventer);
+        
+        $this->assertEquals("5", $transaksjoner[1]->TxID);
+        $this->assertEquals("20102012345", $transaksjoner[1]->FraTilKontonummer);
+        $this->assertEquals(345.56, $transaksjoner[1]->Belop);
+        $this->assertEquals("2015-03-13", $transaksjoner[1]->Dato);
+        $this->assertEquals("Test", $transaksjoner[1]->Melding);
+        $this->assertEquals("55551166677", $transaksjoner[1]->Kontonummer);
+        $this->assertEquals(0, $transaksjoner[1]->Avventer);
+        
+        $this->assertEquals("6", $transaksjoner[1]->TxID);
+        $this->assertEquals("12312345", $transaksjoner[1]->FraTilKontonummer);
+        $this->assertEquals(1234, $transaksjoner[1]->Belop);
+        $this->assertEquals("2012-12-12", $transaksjoner[1]->Dato);
+        $this->assertEquals("Melding", $transaksjoner[1]->Melding);
+        $this->assertEquals("234567", $transaksjoner[1]->Kontonummer);
         $this->assertEquals(1, $transaksjoner[1]->avventer);
         
-        $this->assertEquals("4", $transaksjoner[1]->txID);
-        $this->assertEquals("20102012347", $transaksjoner[1]->fraTilKontonummer);
-        $this->assertEquals(-5000.5, $transaksjoner[1]->belop);
-        $this->assertEquals("2015-03-30", $transaksjoner[1]->dato);
-        $this->assertEquals("Skatt", $transaksjoner[1]->melding);
-        $this->assertEquals("105010123456", $transaksjoner[1]->kontonummer);
-        $this->assertEquals(0, $transaksjoner[1]->avventer);
+        $this->assertEquals("7", $transaksjoner[1]->TxID);
+        $this->assertEquals("345678908", $transaksjoner[1]->FraTilKontonummer);
+        $this->assertEquals(3000, $transaksjoner[1]->Belop);
+        $this->assertEquals("2012-12-12", $transaksjoner[1]->Dato);
+        $this->assertEquals("", $transaksjoner[1]->Melding);
+        $this->assertEquals("105010123456", $transaksjoner[1]->Kontonummer);
+        $this->assertEquals(0, $transaksjoner[1]->Avventer);
         
-        $this->assertEquals("5", $transaksjoner[1]->txID);
-        $this->assertEquals("20102012345", $transaksjoner[1]->fraTilKontonummer);
-        $this->assertEquals(345.56, $transaksjoner[1]->belop);
-        $this->assertEquals("2015-03-13", $transaksjoner[1]->dato);
-        $this->assertEquals("Test", $transaksjoner[1]->melding);
-        $this->assertEquals("55551166677", $transaksjoner[1]->kontonummer);
-        $this->assertEquals(0, $transaksjoner[1]->avventer);
+        $this->assertEquals("8", $transaksjoner[1]->TxID);
+        $this->assertEquals("234534678", $transaksjoner[1]->FraTilKontonummer);
+        $this->assertEquals(15, $transaksjoner[1]->Belop);
+        $this->assertEquals("2012-12-12", $transaksjoner[1]->Dato);
+        $this->assertEquals("Hei", $transaksjoner[1]->Melding);
+        $this->assertEquals("105010123456", $transaksjoner[1]->Kontonummer);
+        $this->assertEquals(0, $transaksjoner[1]->Avventer);
         
-        $this->assertEquals("6", $transaksjoner[1]->txID);
-        $this->assertEquals("12312345", $transaksjoner[1]->fraTilKontonummer);
-        $this->assertEquals(1234, $transaksjoner[1]->belop);
-        $this->assertEquals("2012-12-12", $transaksjoner[1]->dato);
-        $this->assertEquals("Melding", $transaksjoner[1]->melding);
-        $this->assertEquals("234567", $transaksjoner[1]->kontonummer);
-        $this->assertEquals(1, $transaksjoner[1]->avventer);
-        
-        $this->assertEquals("7", $transaksjoner[1]->txID);
-        $this->assertEquals("345678908", $transaksjoner[1]->fraTilKontonummer);
-        $this->assertEquals(3000, $transaksjoner[1]->belop);
-        $this->assertEquals("2012-12-12", $transaksjoner[1]->dato);
-        $this->assertEquals("", $transaksjoner[1]->melding);
-        $this->assertEquals("105010123456", $transaksjoner[1]->kontonummer);
-        $this->assertEquals(0, $transaksjoner[1]->avventer);
-        
-        $this->assertEquals("8", $transaksjoner[1]->txID);
-        $this->assertEquals("234534678", $transaksjoner[1]->fraTilKontonummer);
-        $this->assertEquals(15, $transaksjoner[1]->belop);
-        $this->assertEquals("2012-12-12", $transaksjoner[1]->dato);
-        $this->assertEquals("Hei", $transaksjoner[1]->melding);
-        $this->assertEquals("105010123456", $transaksjoner[1]->kontonummer);
-        $this->assertEquals(0, $transaksjoner[1]->avventer);
-        
-        $this->assertEquals("9", $transaksjoner[1]->txID);
-        $this->assertEquals("1234254365", $transaksjoner[1]->fraTilKontonummer);
-        $this->assertEquals(125, $transaksjoner[1]->belop);
-        $this->assertEquals("2012-12-12", $transaksjoner[1]->dato);
-        $this->assertEquals("Hopp", $transaksjoner[1]->melding);
-        $this->assertEquals("105010123456", $transaksjoner[1]->kontonummer);
-        $this->assertEquals(0, $transaksjoner[1]->avventer);
+        $this->assertEquals("9", $transaksjoner[1]->TxID);
+        $this->assertEquals("1234254365", $transaksjoner[1]->FraTilKontonummer);
+        $this->assertEquals(125, $transaksjoner[1]->Belop);
+        $this->assertEquals("2012-12-12", $transaksjoner[1]->Dato);
+        $this->assertEquals("Hopp", $transaksjoner[1]->Melding);
+        $this->assertEquals("105010123456", $transaksjoner[1]->Kontonummer);
+        $this->assertEquals(0, $transaksjoner[1]->Avventer);
         
     }
     
@@ -510,23 +510,23 @@ class KundeTest extends PHPUnit\Framework\TestCase
         // act
         $kontoer[]= $bankLogikk->hentKonti($personnummer);
         // assert
-        $this->assertEquals("105010123456", $kontoer[0]->kontonummer);
-        $this->assertEquals("01010110523",$kontoer[0]->personnummer); 
-        $this->assertEquals(720 ,$kontoer[0]->saldo); 
-        $this->assertEquals("Lønnskonto",$kontoer[0]->type); 
-        $this->assertEquals("NOK",$kontoer[0]->valuta);       
+        $this->assertEquals("105010123456", $kontoer[0]->Kontonummer);
+        $this->assertEquals("01010110523",$kontoer[0]->Personnummer); 
+        $this->assertEquals(720 ,$kontoer[0]->Saldo); 
+        $this->assertEquals("Lønnskonto",$kontoer[0]->Type); 
+        $this->assertEquals("NOK",$kontoer[0]->Valuta);       
                 
-        $this->assertEquals("22334412345", $kontoer[1]->kontonummer);
-        $this->assertEquals("01010110523",$kontoer[1]->personnummer); 
-        $this->assertEquals(10234.5 ,$kontoer[1]->saldo); 
-        $this->assertEquals("Brukskonto",$kontoer[1]->type); 
-        $this->assertEquals("NOK",$kontoer[1]->valuta);
+        $this->assertEquals("22334412345", $kontoer[1]->Kontonummer);
+        $this->assertEquals("01010110523",$kontoer[1]->Personnummer); 
+        $this->assertEquals(10234.5 ,$kontoer[1]->Saldo); 
+        $this->assertEquals("Brukskonto",$kontoer[1]->Type); 
+        $this->assertEquals("NOK",$kontoer[1]->Valuta);
         
-        $this->assertEquals("105020123456", $kontoer[2]->kontonummer);
-        $this->assertEquals("01010110523",$kontoer[2]->personnummer); 
-        $this->assertEquals(100500 ,$kontoer[2]->saldo); 
-        $this->assertEquals("Sparekonto",$kontoer[2]->type); 
-        $this->assertEquals("NOK",$kontoer[2]->valuta);     
+        $this->assertEquals("105020123456", $kontoer[2]->Kontonummer);
+        $this->assertEquals("01010110523",$kontoer[2]->Personnummer); 
+        $this->assertEquals(100500 ,$kontoer[2]->Saldo); 
+        $this->assertEquals("Sparekonto",$kontoer[2]->Type); 
+        $this->assertEquals("NOK",$kontoer[2]->Valuta);     
 
     }
     
@@ -539,23 +539,23 @@ class KundeTest extends PHPUnit\Framework\TestCase
         // act
         $saldoer[]= $bankLogikk->hentSaldi($personnummer);
         // assert
-        $this->assertEquals("105010123456", $kontoer[0]->kontonummer);
-        $this->assertEquals("01010110523",$kontoer[0]->personnummer); 
-        $this->assertEquals(720 ,$kontoer[0]->saldo); 
-        $this->assertEquals("Lønnskonto",$kontoer[0]->type); 
-        $this->assertEquals("NOK",$kontoer[0]->valuta);       
+        $this->assertEquals("105010123456", $kontoer[0]->Kontonummer);
+        $this->assertEquals("01010110523",$kontoer[0]->Personnummer); 
+        $this->assertEquals(720 ,$kontoer[0]->Saldo); 
+        $this->assertEquals("Lønnskonto",$kontoer[0]->Type); 
+        $this->assertEquals("NOK",$kontoer[0]->Valuta);       
                 
-        $this->assertEquals("22334412345", $kontoer[1]->kontonummer);
-        $this->assertEquals("01010110523",$kontoer[1]->personnummer); 
-        $this->assertEquals(10234.5 ,$kontoer[1]->saldo); 
-        $this->assertEquals("Brukskonto",$kontoer[1]->type); 
-        $this->assertEquals("NOK",$kontoer[1]->valuta);
+        $this->assertEquals("22334412345", $kontoer[1]->Kontonummer);
+        $this->assertEquals("01010110523",$kontoer[1]->Personnummer); 
+        $this->assertEquals(10234.5 ,$kontoer[1]->Saldo); 
+        $this->assertEquals("Brukskonto",$kontoer[1]->Type); 
+        $this->assertEquals("NOK",$kontoer[1]->Valuta);
         
-        $this->assertEquals("105020123456", $kontoer[2]->kontonummer);
-        $this->assertEquals("01010110523",$kontoer[2]->personnummer); 
-        $this->assertEquals(100500 ,$kontoer[2]->saldo); 
-        $this->assertEquals("Sparekonto",$kontoer[2]->type); 
-        $this->assertEquals("NOK",$kontoer[2]->valuta);
+        $this->assertEquals("105020123456", $kontoer[2]->Kontonummer);
+        $this->assertEquals("01010110523",$kontoer[2]->Personnummer); 
+        $this->assertEquals(100500 ,$kontoer[2]->Saldo); 
+        $this->assertEquals("Sparekonto",$kontoer[2]->Type); 
+        $this->assertEquals("NOK",$kontoer[2]->Valuta);
 
     }
    
@@ -565,13 +565,13 @@ class KundeTest extends PHPUnit\Framework\TestCase
     { 
         $bankLogikk=new bankLogikk(new DBStub());
         $transaksjon= new transaksjon();
-        $transaksjon->txtID = 1;
-        $transaksjon->fraTilKontonummer = "20102012345";
-        $transaksjon->beløp = -100.5;
-        $transaksjon->dato = "2015-03-15";
-        $transaksjon->melding = "Meny Storo";
-        $transaksjon->kontonummer = "105010123456";
-        $transaksjon->transaksjon = [1];
+        $transaksjon->TxtID = 1;
+        $transaksjon->FraTilKontonummer = "20102012345";
+        $transaksjon->Beløp = -100.5;
+        $transaksjon->Dato = "2015-03-15";
+        $transaksjon->Melding = "Meny Storo";
+        $transaksjon->Kontonummer = "105010123456";
+        $transaksjon->Transaksjon = [1];
         // act
         $OK= $bankLogikk->registrerBetaling($transaksjon);
         // assert
@@ -583,13 +583,13 @@ class KundeTest extends PHPUnit\Framework\TestCase
     { 
         $bankLogikk=new bankLogikk(new DBStub());
         $transaksjon= new transaksjon();
-        $transaksjon->txtID = 1;
-        $transaksjon->fraTilKontonummer = "20102012345";
-        $transaksjon->beløp = -100.5;
-        $transaksjon->dato = "2015-03-15";
-        $transaksjon->melding = "Meny Storo";
-        $transaksjon->kontonummer = "111111111";
-        $transaksjon->transaksjon = [1];
+        $transaksjon->TxtID = 1;
+        $transaksjon->FraTilKontonummer = "20102012345";
+        $transaksjon->Beløp = -100.5;
+        $transaksjon->Dato = "2015-03-15";
+        $transaksjon->Melding = "Meny Storo";
+        $transaksjon->Kontonummer = "111111111";
+        $transaksjon->Transaksjon = [1];
         // act
         $OK= $bankLogikk->registrerBetaling($transaksjon);
         // assert
@@ -604,77 +604,77 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $transaksjoner[]= $bankLogikk->hentBetaling($personnummer);
         // assert
         
-        $this->assertEquals(1, $transaksjoner[0]->txID);
-        $this->assertEquals("20102012345", $transaksjoner[0]->fraTilKontonummer);
-        $this->assertEquals(-100.5, $transaksjoner[0]->belop);
-        $this->assertEquals("2015-03-15", $transaksjoner[0]->dato);
-        $this->assertEquals("Meny Storo", $transaksjoner[0]->melding);
-        $this->assertEquals("105010123456", $transaksjoner[0]->kontonummer);
-        $this->assertEquals(0, $transaksjoner[0]->avventer);
+        $this->assertEquals(1, $transaksjoner[0]->TxID);
+        $this->assertEquals("20102012345", $transaksjoner[0]->FraTilKontonummer);
+        $this->assertEquals(-100.5, $transaksjoner[0]->Belop);
+        $this->assertEquals("2015-03-15", $transaksjoner[0]->Dato);
+        $this->assertEquals("Meny Storo", $transaksjoner[0]->Melding);
+        $this->assertEquals("105010123456", $transaksjoner[0]->Kontonummer);
+        $this->assertEquals(0, $transaksjoner[0]->Avventer);
         
-        $this->assertEquals(2, $transaksjoner[1]->txID);
-        $this->assertEquals("20102012345", $transaksjoner[1]->fraTilKontonummer);
-        $this->assertEquals(400.4, $transaksjoner[1]->belop);
-        $this->assertEquals("2015-03-20", $transaksjoner[1]->dato);
-        $this->assertEquals("Innebtaling", $transaksjoner[1]->melding);
-        $this->assertEquals("105010123456", $transaksjoner[1]->kontonummer);
-        $this->assertEquals(0, $transaksjoner[1]->avventer);
+        $this->assertEquals(2, $transaksjoner[1]->TxID);
+        $this->assertEquals("20102012345", $transaksjoner[1]->FraTilKontonummer);
+        $this->assertEquals(400.4, $transaksjoner[1]->Belop);
+        $this->assertEquals("2015-03-20", $transaksjoner[1]->Dato);
+        $this->assertEquals("Innebtaling", $transaksjoner[1]->Melding);
+        $this->assertEquals("105010123456", $transaksjoner[1]->Kontonummer);
+        $this->assertEquals(0, $transaksjoner[1]->Avventer);
         
-        $this->assertEquals(3, $transaksjoner[2]->txID);
-        $this->assertEquals("20102012345", $transaksjoner[2]->fraTilKontonummer);
-        $this->assertEquals(-1400.7, $transaksjoner[2]->belop);
-        $this->assertEquals("2015-03-13", $transaksjoner[2]->dato);
-        $this->assertEquals("Husleie", $transaksjoner[2]->melding);
-        $this->assertEquals("55551166677", $transaksjoner[2]->kontonummer);
-        $this->assertEquals(1, $transaksjoner[2]->avventer);
+        $this->assertEquals(3, $transaksjoner[2]->TxID);
+        $this->assertEquals("20102012345", $transaksjoner[2]->FraTilKontonummer);
+        $this->assertEquals(-1400.7, $transaksjoner[2]->Belop);
+        $this->assertEquals("2015-03-13", $transaksjoner[2]->Dato);
+        $this->assertEquals("Husleie", $transaksjoner[2]->Melding);
+        $this->assertEquals("55551166677", $transaksjoner[2]->Kontonummer);
+        $this->assertEquals(1, $transaksjoner[2]->Avventer);
         
-        $this->assertEquals(4, $transaksjoner[3]->txID);
-        $this->assertEquals("20102012347", $transaksjoner[3]->fraTilKontonummer);
-        $this->assertEquals(-5000.5, $transaksjoner[3]->belop);
-        $this->assertEquals("2015-03-30", $transaksjoner[3]->dato);
-        $this->assertEquals("Skatt", $transaksjoner[3]->melding);
-        $this->assertEquals("105010123456", $transaksjoner[3]->kontonummer);
-        $this->assertEquals(0, $transaksjoner[3]->avventer);
+        $this->assertEquals(4, $transaksjoner[3]->TxID);
+        $this->assertEquals("20102012347", $transaksjoner[3]->FraTilKontonummer);
+        $this->assertEquals(-5000.5, $transaksjoner[3]->Belop);
+        $this->assertEquals("2015-03-30", $transaksjoner[3]->Dato);
+        $this->assertEquals("Skatt", $transaksjoner[3]->Melding);
+        $this->assertEquals("105010123456", $transaksjoner[3]->Kontonummer);
+        $this->assertEquals(0, $transaksjoner[3]->Avventer);
         
-        $this->assertEquals(5, $transaksjoner[4]->txID);
-        $this->assertEquals("20102012345", $transaksjoner[4]->fraTilKontonummer);
-        $this->assertEquals(345.56, $transaksjoner[4]->belop);
-        $this->assertEquals("2015-03-13", $transaksjoner[4]->dato);
-        $this->assertEquals("Test", $transaksjoner[4]->melding);
-        $this->assertEquals("55551166677", $transaksjoner[4]->kontonummer);
-        $this->assertEquals(0, $transaksjoner[4]->avventer);
+        $this->assertEquals(5, $transaksjoner[4]->TxID);
+        $this->assertEquals("20102012345", $transaksjoner[4]->FraTilKontonummer);
+        $this->assertEquals(345.56, $transaksjoner[4]->Belop);
+        $this->assertEquals("2015-03-13", $transaksjoner[4]->Dato);
+        $this->assertEquals("Test", $transaksjoner[4]->Melding);
+        $this->assertEquals("55551166677", $transaksjoner[4]->Kontonummer);
+        $this->assertEquals(0, $transaksjoner[4]->Avventer);
         
-        $this->assertEquals(6, $transaksjoner[5]->txID);
-        $this->assertEquals("12312345", $transaksjoner[5]->fraTilKontonummer);
-        $this->assertEquals(1234, $transaksjoner[5]->belop);
-        $this->assertEquals("2012-12-12", $transaksjoner[5]->dato);
-        $this->assertEquals("Melding", $transaksjoner[5]->melding);
-        $this->assertEquals("234567", $transaksjoner[5]->kontonummer);
-        $this->assertEquals(1, $transaksjoner[5]->avventer);
+        $this->assertEquals(6, $transaksjoner[5]->TxID);
+        $this->assertEquals("12312345", $transaksjoner[5]->FraTilKontonummer);
+        $this->assertEquals(1234, $transaksjoner[5]->Belop);
+        $this->assertEquals("2012-12-12", $transaksjoner[5]->Dato);
+        $this->assertEquals("Melding", $transaksjoner[5]->Melding);
+        $this->assertEquals("234567", $transaksjoner[5]->Kontonummer);
+        $this->assertEquals(1, $transaksjoner[5]->Avventer);
         
-        $this->assertEquals(7, $transaksjoner[6]->txID);
-        $this->assertEquals("345678908", $transaksjoner[6]->fraTilKontonummer);
-        $this->assertEquals(3000, $transaksjoner[6]->belop);
-        $this->assertEquals("2012-12-12", $transaksjoner[6]->dato);
-        $this->assertEquals("", $transaksjoner[6]->melding);
-        $this->assertEquals("105010123456", $transaksjoner[6]->kontonummer);
-        $this->assertEquals(0, $transaksjoner[6]->avventer);
+        $this->assertEquals(7, $transaksjoner[6]->TxID);
+        $this->assertEquals("345678908", $transaksjoner[6]->FraTilKontonummer);
+        $this->assertEquals(3000, $transaksjoner[6]->Belop);
+        $this->assertEquals("2012-12-12", $transaksjoner[6]->Dato);
+        $this->assertEquals("", $transaksjoner[6]->Melding);
+        $this->assertEquals("105010123456", $transaksjoner[6]->Kontonummer);
+        $this->assertEquals(0, $transaksjoner[6]->Avventer);
         
-        $this->assertEquals(8, $transaksjoner[7]->txID);
-        $this->assertEquals("234534678", $transaksjoner[7]->fraTilKontonummer);
-        $this->assertEquals(15, $transaksjoner[7]->belop);
-        $this->assertEquals("2012-12-12", $transaksjoner[7]->dato);
-        $this->assertEquals("Hei", $transaksjoner[7]->melding);
-        $this->assertEquals("105010123456", $transaksjoner[7]->kontonummer);
-        $this->assertEquals(0, $transaksjoner[7]->avventer);
+        $this->assertEquals(8, $transaksjoner[7]->TxID);
+        $this->assertEquals("234534678", $transaksjoner[7]->FraTilKontonummer);
+        $this->assertEquals(15, $transaksjoner[7]->Belop);
+        $this->assertEquals("2012-12-12", $transaksjoner[7]->Dato);
+        $this->assertEquals("Hei", $transaksjoner[7]->Melding);
+        $this->assertEquals("105010123456", $transaksjoner[7]->Kontonummer);
+        $this->assertEquals(0, $transaksjoner[7]->Avventer);
         
-        $this->assertEquals(9, $transaksjoner[8]->txID);
-        $this->assertEquals("1234254365", $transaksjoner[8]->fraTilKontonummer);
-        $this->assertEquals(125, $transaksjoner[8]->belop);
-        $this->assertEquals("2012-12-12", $transaksjoner[8]->dato);
-        $this->assertEquals("Hopp", $transaksjoner[8]->melding);
-        $this->assertEquals("105010123456", $transaksjoner[8]->kontonummer);
-        $this->assertEquals(0, $transaksjoner[8]->avventer);
+        $this->assertEquals(9, $transaksjoner[8]->TxID);
+        $this->assertEquals("1234254365", $transaksjoner[8]->FraTilKontonummer);
+        $this->assertEquals(125, $transaksjoner[8]->Belop);
+        $this->assertEquals("2012-12-12", $transaksjoner[8]->Dato);
+        $this->assertEquals("Hopp", $transaksjoner[8]->Melding);
+        $this->assertEquals("105010123456", $transaksjoner[8]->Kontonummer);
+        $this->assertEquals(0, $transaksjoner[8]->Avventer);
     }
             
 
@@ -683,7 +683,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $bankLogikk=new bankLogikk(new DBStub());
         $txID= 1;
         // act
-        $OK = $bankLogikk->utforBetaling($txID);
+        $OK = $bankLogikk->utforBetaling($TxID);
         // assert
         $this->assertEquals("OK", $OK);
     }
@@ -706,13 +706,13 @@ class KundeTest extends PHPUnit\Framework\TestCase
         //act
         $kunde = $bankLogikk->hentKundeInfo($personnummer);
        // assert
-        $this->assertEquals("01010110523", $kunde->personnummer);
-        $this->assertEquals("Lene",$kunde->fornavn); 
-        $this->assertEquals("Jensen",$kunde->etternavn); 
-        $this->assertEquals("Askerveien 22",$kunde->adresse); 
-        $this->assertEquals("3270",$kunde->postnr); 
-        $this->assertEquals("22224444",$kunde->telefonnr); 
-        $this->assertEquals("Heihei",$kunde->passord); 
+        $this->assertEquals("01010110523", $kunde->Personnummer);
+        $this->assertEquals("Lene",$kunde->Fornavn); 
+        $this->assertEquals("Jensen",$kunde->Etternavn); 
+        $this->assertEquals("Askerveien 22",$kunde->Adresse); 
+        $this->assertEquals("3270",$kunde->Postnr); 
+        $this->assertEquals("22224444",$kunde->Telefonnr); 
+        $this->assertEquals("Heihei",$kunde->Passord); 
     }
     
     function test_hentKundeInfo_Bank_Feil()
@@ -731,15 +731,15 @@ class KundeTest extends PHPUnit\Framework\TestCase
         // arrange
         $bankLogikk = new bankLogikk(new DBStub());
         $kunde = new kunde();
-        $kunde->personnummer = "01010110523";
-        $kunde->fornavn = "Lene";
-        $kunde->etternavn ="Jensen";
-        $kunde->adresse = "Askerveien 22";
-        $kunde->postnr = "3270";
-        $kunde->telefonnr = "22224444";
-        $kunde->passord = "HeiHei";
+        $kunde->Personnummer = "01010110523";
+        $kunde->Fornavn = "Lene";
+        $kunde->Etternavn ="Jensen";
+        $kunde->Adresse = "Askerveien 22";
+        $kunde->Postnr = "3270";
+        $kunde->Telefonnr = "22224444";
+        $kunde->Passord = "HeiHei";
         // act
-        $OK = $bankLogikk->endreKunde($kunde);
+        $OK = $bankLogikk->endreKundeInfo($kunde);
        // assert
         $this->assertEquals("OK",$OK); 
     }
@@ -749,15 +749,15 @@ class KundeTest extends PHPUnit\Framework\TestCase
         // arrange
         $bankLogikk = new bankLogikk(new DBStub());
         $kunde = new kunde();
-        $kunde->personnummer = "111111111";
-        $kunde->fornavn = "Lene";
-        $kunde->etternavn ="Jensen";
-        $kunde->adresse = "Askerveien 22";
-        $kunde->postnr = "3270";
-        $kunde->telefonnr = "22224444";
-        $kunde->passord = "HeiHei";
+        $kunde->Personnummer = "111111111";
+        $kunde->Fornavn = "Lene";
+        $kunde->Etternavn ="Jensen";
+        $kunde->Adresse = "Askerveien 22";
+        $kunde->Postnr = "3270";
+        $kunde->Telefonnr = "22224444";
+        $kunde->Passord = "HeiHei";
         // act
-        $OK = $bankLogikk->endreKunde($kunde);
+        $OK = $bankLogikk->endreKundeInfo($kunde);
        // assert
         $this->assertEquals("Feil",$OK); 
     }   
