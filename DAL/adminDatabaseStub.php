@@ -17,7 +17,6 @@ function hentAlleKunder()
       
       $alleKunder[]=$kunde1;
       
-      
       $kunde2->Personnummer="12345678901";
       $kunde2->Fornavn="Per";
       $kunde2->Etternavn="Hansen";
