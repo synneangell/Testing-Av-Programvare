@@ -8,7 +8,7 @@ function hentAlleKunder()
     {
       $alleKunder =array();
       
-      $kunde1= new Kunde();
+      $kunde1= new kunde();
       $kunde1->Personnummer="01010110523";
       $kunde1->Fornavn="Lene";
       $kunde1->Etternavn="Jensen";
@@ -19,7 +19,7 @@ function hentAlleKunder()
       
       $alleKunder[]=$kunde1;
       
-      $kunde2= new Kunde();
+      $kunde2= new kunde();
       
       $kunde2->Personnummer="12345678901";
       $kunde2->Fornavn="Per";

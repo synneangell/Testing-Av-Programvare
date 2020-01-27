@@ -106,10 +106,11 @@
             
     }
     
-    /*function hentKundeInfo($kunde) 
+    function hentKundeInfo($personnummer) 
     {
-        $enKunde = new Kunde();
-        $enKunde->personnummer="01010110523";
+        $enKunde = new kunde();
+        $enKunde->personnummer=$personnummer;
+        //$enKunde->personnummer="01010110523";
         $enKunde->fornavn = "Lene";
         $enKunde->etternavn ="Jensen";
         $enKunde->adresse = "Askerveien 22";
@@ -117,7 +118,7 @@
         $enKunde->telefonnr = "22224444";
         $enKunde->passord="HeiHei";
         return $enKunde;
-    }*/
+    }
         
         //endreKunde
     
@@ -135,9 +136,30 @@
     
     function slettKunde($personnummer)
     {
-        if($personnummer=="-1"){
+        if($personnummer=="11111111111"){
             return "Feil";
         }   
+        return "OK";
+    }
+    
+    function sjekkLoggInn($personnummer, $passord){
+        if($personnummer=="11111111111" and $passord=="HalloHallo"){
+            return "Feil";
+        }
+        return "OK";
+    }
+    
+    function hentKonti($personnummer){
+        if($personnummer=="11111111111"){
+            return "Feil";
+        }
+        return "OK";
+    }
+    
+    function hentSaldi($personnummer){
+        if($personnummer=="11111111111"){
+            return "Feil";
+        }
         return "OK";
     }
     }
