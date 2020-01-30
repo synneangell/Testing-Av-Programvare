@@ -87,14 +87,6 @@
         }
         return "OK";
     }
-    /*
-    function slettKunde($personnummer)
-    {
-        if($personnummer=="11111111111"){
-            return "Feil";
-        }   
-        return "OK";
-    }*/
     
     function sjekkLoggInn($personnummer, $passord)
     {
