@@ -113,7 +113,7 @@
         }
         $enKunde = new kunde();
         $enKunde->Personnummer=$personnummer;
-        $enKunde->personnummer="01010110523";
+        //$enKunde->personnummer="01010110523";
         $enKunde->Fornavn = "Lene";
         $enKunde->Etternavn ="Jensen";
         $enKunde->Adresse = "Askerveien 22";
