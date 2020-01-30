@@ -154,7 +154,34 @@
         if($personnummer=="11111111111"){
             return "Feil";
         }
-        return "OK";
+        
+        $kontoer=array();
+        $konto1 = new konto();
+        $konto1->Kontonummer="105010123456";
+        $konto1->Personnummer="01010110523";
+        $konto1->Saldo=720;
+        $konto1->Type="Lønnskonto";
+        $konto1->Valuta="NOK";
+        $konto[]=$konto1;
+                    
+        $konto2 = new konto();
+        $konto2->Kontonummer="22334412345";
+        $konto2->Personnummer="01010110523";
+        $konto2->Saldo=10234.5;
+        $konto2->Type="Brukskonto";
+        $konto2->Valuta="NOK";
+        $konto[]=$konto2;
+        
+       
+        $konto3 = new konto();
+        $konto3->Kontonummer="105020123456";
+        $konto3->Personnummer="01010110523";
+        $konto3->Saldo=100500;
+        $konto3->Type="Sparekonto";
+        $konto3->Valuta="NOK";
+        $konto[]=$konto3;
+        
+        return $kontoer;
     }
     
     function hentSaldi($personnummer){
@@ -179,58 +206,77 @@
         if($personnummer=="11111111111"){
             return "Feil";
         }
-        $betalinger[0]->fraTilKontonummer="20102012345";
-        $betalinger[0]->avventer=0;
-        $betalinger[0]->belop=-100.5;
-        $betalinger[0]->dato="2015-03-15";
-        $betalinger[0]->melding="Meny Storo";
+        $transaksjon1 = new transaksjon();
+        $transaksjon1->FraTilKontonummer="20102012345";
+        $transaksjon1->Avventer=0;
+        $transaksjon1->Belop=-100.5;
+        $transaksjon1->Dato="2015-03-15";
+        $transaksjon1->Melding="Meny Storo";
+        $betalinger[]=$transaksjon1;
         
-        $betalinger[1]->fraTilKontonummer="20102012345";
-        $betalinger[1]->avventer=0;
-        $betalinger[1]->belop=-400.4;
-        $betalinger[1]->dato="2015-03-20";
-        $betalinger[1]->melding="Innebtaling";
+        $transaksjon2 = new transaksjon();
+        $transaksjon2->FraTilKontonummer="20102012345";
+        $transaksjon2->Avventer=0;
+        $transaksjon2->Belop=400.4;
+        $transaksjon2->Dato="2015-03-20";
+        $transaksjon2->Melding="Innebtaling";
+        $betalinger[]=$transaksjon2;
         
-        $betalinger[2]->fraTilKontonummer="20102012345";
-        $betalinger[2]->avventer=1;
-        $betalinger[2]->belop=-1400.7;
-        $betalinger[2]->dato="2015-03-13";
-        $betalinger[2]->melding="Husleie";
+        $transaksjon3 = new transaksjon();
+        $transaksjon3->FraTilKontonummer="20102012345";
+        $transaksjon3->Avventer=1;
+        $transaksjon3->Belop=-1400.7;
+        $transaksjon3->Dato="2015-03-13";
+        $transaksjon3->Melding="Husleie";
+        $betalinger[]=$transaksjon3;
          
-        $betalinger[3]->fraTilKontonummer="20102012347";
-        $betalinger[3]->avventer=0;
-        $betalinger[3]->belop=-5000.5;
-        $betalinger[3]->dato="2015-03-30";
-        $betalinger[3]->melding="Skatt";
+        $transaksjon4 = new transaksjon();
+        $transaksjon4->FraTilKontonummer="20102012347";
+        $transaksjon4->Avventer=0;
+        $transaksjon4->Belop=-5000.5;
+        $transaksjon4->Dato="2015-03-30";
+        $transaksjon4->Melding="Skatt";
+        $betalinger[]=$transaksjon4;
+        
+        $transaksjon5 = new transaksjon();
+        $transaksjon5->FraTilKontonummer="20102012345";
+        $transaksjon5->Avventer=0;
+        $transaksjon5->Belop=345.56;
+        $transaksjon5->Dato="2015-03-13";
+        $transaksjon5->Melding="Test";
+        $betalinger[]=$transaksjon5;
+        
+        $transaksjon6 = new transaksjon();
+        $transaksjon6->FraTilKontonummer="12312345";
+        $transaksjon6->Avventer=1;
+        $transaksjon6->Belop=1234;
+        $transaksjon6->Dato="2012-12-12";
+        $transaksjon6->Melding="Melding";
+        $betalinger[]=$transaksjon6;
 
-        $betalinger[4]->fraTilKontonummer="20102012345";
-        $betalinger[4]->avventer=0;
-        $betalinger[4]->belop=345.56;
-        $betalinger[4]->dato="2015-03-13";
-        $betalinger[4]->melding="Test";
+        $transaksjon7 = new transaksjon();
+        $transaksjon7->FraTilKontonummer="345678908";
+        $transaksjon7->Avventer=0;
+        $transaksjon7->Belop=3000;
+        $transaksjon7->Dato="2012-12-12";
+        $transaksjon7->Melding="";
+        $betalinger[]=$transaksjon7;
         
-        $betalinger[5]->fraTilKontonummer="12312345";
-        $betalinger[5]->avventer=1;
-        $betalinger[5]->belop=1234;
-        $betalinger[5]->dato="2012-12-12";
-        $betalinger[5]->melding="Melding";
-
-        $betalinger[6]->fraTilKontonummer="345678908";
-        $betalinger[6]->avventer=0;
-        $betalinger[6]->belop=3000;
-        $betalinger[6]->dato="2012-12-12";
-        $betalinger[6]->melding="";
+        $transaksjon8 = new transaksjon();
+        $transaksjon8->FraTilKontonummer="234534678";
+        $transaksjon8->Avventer=0;
+        $transaksjon8->Belop=15;
+        $transaksjon8->Dato="2012-12-12";
+        $transaksjon8->Melding="Hei";
+        $betalinger[]=$transaksjon8;
         
-        $betalinger[7]->fraTilKontonummer="234534678";
-        $betalinger[7]->belop=15;
-        $betalinger[7]->dato="2012-12-12";
-        $betalinger[7]->melding="Hei";
-        
-        $betalinger[8]->fraTilKontonummer="1234254365";
-        $betalinger[8]->avventer=0;
-        $betalinger[8]->belop=125;
-        $betalinger[8]->dato="2012-12-12";
-        $betalinger[8]->melding="Hopp";
+        $transaksjon9 = new transaksjon();
+        $transaksjon9->FraTilKontonummer="1234254365";
+        $transaksjon9->Avventer=0;
+        $transaksjon9->Belop=125;
+        $transaksjon9->Dato="2012-12-12";
+        $transaksjon9->Melding="Hopp";
+        $betalinger[]=$transaksjon9;
         
         return $betalinger;
                
