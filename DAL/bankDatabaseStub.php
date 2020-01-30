@@ -1,5 +1,6 @@
 <?php
     include_once '../Model/domeneModell.php';
+    
     class DBStub
     {
         function hentEnKunde($personnummer)
@@ -44,18 +45,17 @@
             date_default_timezone_set("Europe/Oslo");
             $fraDato = strtotime($fraDato);
             $tilDato = strtotime($tilDato);
-            if($fraDato>$tilDato)
-            {
+            if($fraDato>$tilDato) {
                 return "Fra dato må være større enn tildato";
             }
+            
             $konto = new konto();
             $konto->personnummer="010101234567";
             $konto->kontonummer=$kontoNr;
             $konto->type="Sparekonto";
             $konto->saldo =2300.34;
             $konto->valuta="NOK";
-            if($tilDato < strtotime('2015-03-26'))
-            {
+            if($tilDato < strtotime('2015-03-26')) {
                 return $konto;
             }
             $dato = $fraDato;
@@ -93,17 +93,12 @@
             return $konto;
         }
         
-        //registrerKunde
-        
     function registrerKunde($kunde)
     {
         if($kunde->Personnummer==""){ //Hva skal vi ha her?
             return "OK";
         }
-        
-        return "Feil";
-            
-            
+        return "Feil";  
     }
     
     function hentKundeInfo($personnummer) 
@@ -122,10 +117,7 @@
         $enKunde->Passord="HeiHei";
         return $enKunde;
     }
-        
-        //endreKunde
-    
-    
+
     function endreKundeInfo($kunde)
     {
         if($kunde->Personnummer=="-1"){
@@ -133,9 +125,6 @@
         }
         return "OK";
     }
-    
-   
-        //slettKunde
     
     function slettKunde($personnummer)
     {
@@ -145,49 +134,16 @@
         return "OK";
     }
     
-    function sjekkLoggInn($personnummer, $passord){
+    function sjekkLoggInn($personnummer, $passord)
+    {
         if($personnummer=="11111111111" OR $passord=="HaloHalo"){
             return "Feil";
         }
         return "OK";
     }
     
-    function hentKonti($personnummer){
-        
-        if($personnummer=="11111111111"){
-            return "Feil";
-        }
-        
-        $kontoer=array();
-        $konto1 = new konto();
-        $konto1->Kontonummer="105010123456";
-        $konto1->Personnummer="01010110523";
-        $konto1->Saldo=720;
-        $konto1->Type="Lønnskonto";
-        $konto1->Valuta="NOK";
-        $kontoer[]=$konto1;
-                    
-        $konto2 = new konto();
-        $konto2->Kontonummer="22334412345";
-        $konto2->Personnummer="01010110523";
-        $konto2->Saldo=10234.5;
-        $konto2->Type="Brukskonto";
-        $konto2->Valuta="NOK";
-        $kontoer[]=$konto2;
-        
-       
-        $konto3 = new konto();
-        $konto3->Kontonummer="105020123456";
-        $konto3->Personnummer="01010110523";
-        $konto3->Saldo=100500;
-        $konto3->Type="Sparekonto";
-        $konto3->Valuta="NOK";
-        $kontoer[]=$konto3;
-        
-        return $kontoer;
-    }
-    
-    function hentSaldi($personnummer){
+    function hentKonti($personnummer)
+    {
         if($personnummer=="11111111111"){
             return "Feil";
         }
@@ -207,7 +163,6 @@
         $konto2->Type="Brukskonto";
         $konto2->Valuta="NOK";
         $kontoer[]=$konto2;
-        
        
         $konto3 = new konto();
         $konto3->Kontonummer="105020123456";
@@ -220,17 +175,49 @@
         return $kontoer;
     }
     
-    //
-    
-    function registrerBetaling($kontoNr, $transaksjon){
+    function hentSaldi($personnummer)
+    {
+        if($personnummer=="11111111111"){
+            return "Feil";
+        }
+        $kontoer=array();
+        $konto1 = new konto();
+        $konto1->Kontonummer="105010123456";
+        $konto1->Personnummer="01010110523";
+        $konto1->Saldo=720;
+        $konto1->Type="Lønnskonto";
+        $konto1->Valuta="NOK";
+        $kontoer[]=$konto1;
+                    
+        $konto2 = new konto();
+        $konto2->Kontonummer="22334412345";
+        $konto2->Personnummer="01010110523";
+        $konto2->Saldo=10234.5;
+        $konto2->Type="Brukskonto";
+        $konto2->Valuta="NOK";
+        $kontoer[]=$konto2;
+        
+        $konto3 = new konto();
+        $konto3->Kontonummer="105020123456";
+        $konto3->Personnummer="01010110523";
+        $konto3->Saldo=100500;
+        $konto3->Type="Sparekonto";
+        $konto3->Valuta="NOK";
+        $kontoer[]=$konto3;
+        
+        return $kontoer;
+    }
+
+    function registrerBetaling($kontoNr, $transaksjon)
+    {
         if($kontoNr=="11111111111"){
             return "Feil";
         }
-        return "OK";
-        
+        return "OK"; 
     }
      
-    function hentBetalinger($personnummer){
+    function hentBetalinger($personnummer)
+    {
         $betalinger= array();
         if($personnummer=="11111111111"){
             return "Feil";
@@ -307,8 +294,7 @@
         $transaksjon9->Melding="Hopp";
         $betalinger[]=$transaksjon9;
         
-        return $betalinger;
-               
+        return $betalinger;       
     }
     
     function utforBetaling($TxID){
@@ -316,6 +302,5 @@
             return "Feil";
         }
         return "OK";
-    }
-    
+    } 
 }

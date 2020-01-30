@@ -1,7 +1,5 @@
 <?php
-
 include_once '../DAL/bankDatabase.php';
-//include_once '..DAL/bankDatabaseStub.php';
 
 class bankLogikk
 {
@@ -23,7 +21,6 @@ class bankLogikk
         $konto= $this->db->hentTransaksjoner($kontoNr, $fraDato, $tilDato);
         return $konto;
     }
-    
     
     function sjekkLoggInn($personnummer,$passord)
     {

@@ -1,5 +1,6 @@
 <?php
 include_once '../Model/domeneModell.php';
+
 class AdminDB
 {
     private $db;
@@ -155,6 +156,7 @@ class AdminDB
         }
         return $konti;
     }
+    
     function slettKonto($kontonummer)
     {
         $sql = "Delete from Konto Where Kontonummer = '$kontonummer'";
