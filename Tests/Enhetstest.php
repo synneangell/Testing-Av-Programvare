@@ -74,7 +74,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $this->assertEquals("OK",$OK); 
     }
     
-    function test_registerKunde_DB_Feil()
+    function test_registrerKunde_DB_Feil()
     {
         // arrange
         $adminLogikk=new adminLogikk(new AdminDBStub());
@@ -261,6 +261,28 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $this->assertEquals("NOK",$kontoer[2]->Valuta);    
     }
     
+    function test_sjekkLoggInn_Feil_Personnummer_ForFå(){
+        
+        $bankLogikk = new bankLogikk(new DBStub());
+        $personnummer = "1";
+        $passord = "HeiHei";
+        
+        $OK = $bankLogikk->sjekkLoggInn($personnummer, $passord);
+        
+        $this->assertEquals("Feil i personnummer", $OK);
+    }
+    
+    function test_sjekkLoggInn_Feil_Personnummer_ForMange(){
+        
+        $bankLogikk = new bankLogikk(new DBStub());
+        $personnummer = "1111111111111111111";
+        $passord = "HeiHei";
+        
+        $OK = $bankLogikk->sjekkLoggInn($personnummer, $passord);
+        
+        $this->assertEquals("Feil i personnummer", $OK);
+    }
+    
     function test_sjekkLoggInn_RegEx_Feil_Personnummer() 
     { 
         // arrange
@@ -283,6 +305,28 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $OK = $bankLogikk->sjekkLoggInn($personnummer, $passord);
        // assert
         $this->assertEquals("Feil",$OK); 
+    }
+    
+    function test_sjekkLoggInn_Feil_Passord_ForFå(){
+        
+        $bankLogikk = new bankLogikk(new DBStub());
+        $personnummer = "01010110523";
+        $passord = "1";
+        
+        $OK = $bankLogikk->sjekkLoggInn($personnummer, $passord);
+        
+        $this->assertEquals("Feil i passord", $OK);
+    }
+    
+    function test_sjekkLoggInn_Feil_Passord_ForMange(){
+        
+        $bankLogikk = new bankLogikk(new DBStub());
+        $personnummer = "01010110523";
+        $passord = "12345678910123456789101234567891012345678910";
+        
+        $OK = $bankLogikk->sjekkLoggInn($personnummer, $passord);
+        
+        $this->assertEquals("Feil i passord", $OK);
     }
     
     function test_sjekkLoggInn_Feil()
@@ -310,7 +354,8 @@ class KundeTest extends PHPUnit\Framework\TestCase
     }
       
     function test_hentKonti_OK() 
-    { 
+    {   
+        
         // arrange
         $bankLogikk=new bankLogikk(new DBStub());
         $personnummer = "01010110523";
@@ -336,6 +381,17 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $this->assertEquals("NOK",$kontoer[2]->Valuta);     
     }
     
+    function test_hentKonti_Feil()
+    {
+        // arrange
+        $bankLogikk=new bankLogikk(new DBStub());
+        $personnummer = "11111111111";
+        // act
+        $OK = $bankLogikk->hentKonti($personnummer);
+        // assert   
+        $this->assertEquals("Feil", $OK);
+    }
+    
     function test_hentSaldi_OK() 
     { 
         // arrange
@@ -352,6 +408,17 @@ class KundeTest extends PHPUnit\Framework\TestCase
 
         $this->assertEquals("01010110523",$saldoer[2]->Personnummer); 
         $this->assertEquals(100500 ,$saldoer[2]->Saldo); 
+    }
+    
+    function test_hentSaldi_Feil() 
+    {
+        // arrange
+        $bankLogikk=new bankLogikk(new DBStub());
+        $personnummer = "11111111111";
+        // act
+        $OK= $bankLogikk->hentSaldi($personnummer);
+        // assert
+        $this->assertEquals("Feil", $OK);
     }
 
     function test_registrerBetaling_OK()
@@ -450,6 +517,15 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $this->assertEquals(0, $transaksjoner[8]->Avventer);
     }
             
+    function test_hentBetaling_Feil() 
+    {
+        $bankLogikk=new bankLogikk(new DBStub());
+        $personnummer = "11111111111";
+        // act
+        $OK= $bankLogikk->hentBetalinger($personnummer);
+        // assert
+        $this->assertEquals("Feil", $OK);
+    }
 
     function test_utforBetaling_OK() 
     { 

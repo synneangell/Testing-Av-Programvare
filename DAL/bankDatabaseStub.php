@@ -3,43 +3,6 @@
     
     class DBStub
     {
-        function hentEnKunde($personnummer)
-        {
-           $enKunde = new kunde();
-           $enKunde->personnummer =$personnummer;
-           $enKunde->navn = "Per Olsen";
-           $enKunde->adresse = "Osloveien 82, 0270 Oslo";
-           $enKunde->telefonnr="12345678";
-           return $enKunde;
-        }
-        
-        function hentAlleKunder()
-        {
-           $alleKunder = array();
-           $kunde1 = new kunde();
-           $kunde1->personnummer ="01010122344";
-           $kunde1->navn = "Per Olsen";
-           $kunde1->adresse = "Osloveien 82 0270 Oslo";
-           $kunde1->telefonnr="12345678";
-           $alleKunder[]=$kunde1;
-           
-           $kunde2 = new kunde();
-           $kunde2->personnummer ="01010122344";
-           $kunde2->navn = "Line Jensen";
-           $kunde2->adresse = "Askerveien 100, 1379 Asker";
-           $kunde2->telefonnr="92876789";
-           $alleKunder[]=$kunde2;
-           
-           $kunde3 = new kunde();
-           $kunde3->personnummer ="02020233455";
-           $kunde3->navn = "Ole Olsen";
-           $kunde3->adresse = "Bærumsveien 23, 1234 Bærum";
-           $kunde3->telefonnr="99889988";
-           $alleKunder[]=$kunde3;
-          
-           return $alleKunder;
-        }
-        
         function hentTransaksjoner($kontoNr,$fraDato,$tilDato)
         {
             date_default_timezone_set("Europe/Oslo");
@@ -92,14 +55,14 @@
             }
             return $konto;
         }
-        
+    /*    
     function registrerKunde($kunde)
     {
-        if($kunde->Personnummer==""){ //Hva skal vi ha her?
-            return "OK";
+        if($kunde->Personnummer=="111111111"){ //Hva skal vi ha her?
+            return "Feil";
         }
-        return "Feil";  
-    }
+        return "OK";  
+    }*/
     
     function hentKundeInfo($personnummer) 
     {
@@ -108,7 +71,6 @@
         }
         $enKunde = new kunde();
         $enKunde->Personnummer=$personnummer;
-        //$enKunde->personnummer="01010110523";
         $enKunde->Fornavn = "Lene";
         $enKunde->Etternavn ="Jensen";
         $enKunde->Adresse = "Askerveien 22";
@@ -125,20 +87,29 @@
         }
         return "OK";
     }
-    
+    /*
     function slettKunde($personnummer)
     {
         if($personnummer=="11111111111"){
             return "Feil";
         }   
         return "OK";
-    }
+    }*/
     
     function sjekkLoggInn($personnummer, $passord)
     {
+        $lengdePersonnummer = strlen($personnummer);
+        $lengdePassord = strlen($passord);
         if($personnummer=="11111111111" OR $passord=="HaloHalo"){
             return "Feil";
         }
+        if ($lengdePersonnummer != 11){
+            return "Feil i personnummer";
+        }
+        if($lengdePassord < 6 OR $lengdePassord > 30){
+            return "Feil i passord";
+        }
+      
         return "OK";
     }
     
