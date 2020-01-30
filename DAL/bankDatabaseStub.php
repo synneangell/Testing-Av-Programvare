@@ -162,7 +162,7 @@
         $konto1->Saldo=720;
         $konto1->Type="Lønnskonto";
         $konto1->Valuta="NOK";
-        $konto[]=$konto1;
+        $kontoer[]=$konto1;
                     
         $konto2 = new konto();
         $konto2->Kontonummer="22334412345";
@@ -170,7 +170,7 @@
         $konto2->Saldo=10234.5;
         $konto2->Type="Brukskonto";
         $konto2->Valuta="NOK";
-        $konto[]=$konto2;
+        $kontoer[]=$konto2;
         
        
         $konto3 = new konto();
@@ -179,7 +179,7 @@
         $konto3->Saldo=100500;
         $konto3->Type="Sparekonto";
         $konto3->Valuta="NOK";
-        $konto[]=$konto3;
+        $kontoer[]=$konto3;
         
         return $kontoer;
     }
@@ -188,7 +188,33 @@
         if($personnummer=="11111111111"){
             return "Feil";
         }
-        return "OK";
+        $kontoer=array();
+        $konto1 = new konto();
+        $konto1->Kontonummer="105010123456";
+        $konto1->Personnummer="01010110523";
+        $konto1->Saldo=720;
+        $konto1->Type="Lønnskonto";
+        $konto1->Valuta="NOK";
+        $kontoer[]=$konto1;
+                    
+        $konto2 = new konto();
+        $konto2->Kontonummer="22334412345";
+        $konto2->Personnummer="01010110523";
+        $konto2->Saldo=10234.5;
+        $konto2->Type="Brukskonto";
+        $konto2->Valuta="NOK";
+        $kontoer[]=$konto2;
+        
+       
+        $konto3 = new konto();
+        $konto3->Kontonummer="105020123456";
+        $konto3->Personnummer="01010110523";
+        $konto3->Saldo=100500;
+        $konto3->Type="Sparekonto";
+        $konto3->Valuta="NOK";
+        $kontoer[]=$konto3;
+        
+        return $kontoer;
     }
     
     //
