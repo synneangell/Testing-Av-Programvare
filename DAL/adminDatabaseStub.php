@@ -36,11 +36,10 @@ function hentAlleKunder()
     
     function endreKundeInfo($kunde)
     {
-        if($kunde->Personnummer=="-1"){
+        if($kunde->Personnummer=="11111111111"){
             return "Feil";
         }
         return "OK";
-        
        
     }
     
@@ -55,22 +54,21 @@ function hentAlleKunder()
             
     }
     
-   
     
     function slettKunde($personnummer)
     {
-        if($personnummer=="-1"){
+        if($personnummer=="11111111111"){
             return "Feil";
         }   
-        return "Ok";
+        return "OK";
     }
     
     function registerKonto($konto)
     {
-        if($konto->Kontonummer==""){ //Hva skal vi ha her?
-            return "OK";
+        if($konto->Kontonummer=="-1"){ //Hva skal vi ha her?
+            return "Feil";
         }
-        return "Feil";
+        return "OK";
     }
     
     function endreKonto($konto)
