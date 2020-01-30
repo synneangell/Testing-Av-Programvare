@@ -108,9 +108,6 @@
     
     function hentKundeInfo($personnummer) 
     {
-        if($personnummer=="11111111111"){
-            return "Feil";
-        }
         $enKunde = new kunde();
         $enKunde->Personnummer=$personnummer;
         $enKunde->personnummer="01010110523";
@@ -146,7 +143,7 @@
     }
     
     function sjekkLoggInn($personnummer, $passord){
-        if($personnummer=="11111111111" OR $passord=="HaloHalo"){
+        if($personnummer=="11111111111" and $passord=="HalloHallo"){
             return "Feil";
         }
         return "OK";
