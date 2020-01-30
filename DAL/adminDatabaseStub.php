@@ -1,13 +1,11 @@
 <?php
 include_once "../Model/domeneModell.php";
 
-//hentAlleKunder
 class AdminDBStub
 {
 function hentAlleKunder()
     {
       $alleKunder =array();
-      
       $kunde1= new kunde();
       $kunde1->Personnummer="01010110523";
       $kunde1->Fornavn="Lene";
@@ -20,7 +18,6 @@ function hentAlleKunder()
       $alleKunder[]=$kunde1;
       
       $kunde2= new kunde();
-      
       $kunde2->Personnummer="12345678901";
       $kunde2->Fornavn="Per";
       $kunde2->Etternavn="Hansen";
@@ -40,20 +37,15 @@ function hentAlleKunder()
             return "Feil";
         }
         return "OK";
-       
     }
     
     function registrerKunde($kunde)
     {
         if($kunde->Personnummer=="01010110523"){ //Hva skal vi ha her?
             return "OK";
-        }
-        
-        return "Feil";
-            
-            
+        } 
+        return "Feil";      
     }
-    
     
     function slettKunde($personnummer)
     {
@@ -65,7 +57,7 @@ function hentAlleKunder()
     
     function registerKonto($konto)
     {
-        if($konto->Kontonummer=="-1"){ //Hva skal vi ha her?
+        if($konto->Kontonummer=="-1"){
             return "Feil";
         }
         return "OK";
@@ -82,11 +74,12 @@ function hentAlleKunder()
     function hentAlleKonti()
     {
         $kontoListe= array();
+        
         $konto1=new konto();
         $konto1->Kontonummer="105010123456";
         $konto1->Personnummer="01010110523";
         $konto1->Saldo=720;
-        $konto1->Type="Lonnskonto";//brukt o istedenfor ø
+        $konto1->Type="Lonnskonto";
         $konto1->Valuta="NOK";
         
         $kontoListe[]=$konto1;
@@ -95,12 +88,12 @@ function hentAlleKunder()
         $konto2->Kontonummer="22334412345";
         $konto2->Personnummer="01010110523";
         $konto2->Saldo=10234.5;
-        $konto2->Type="Brukskonto";//brukt o istedenfor ø
+        $konto2->Type="Brukskonto";
         $konto2->Valuta="NOK";
         
         $kontoListe[]=$konto2;
-        $konto3=new konto();
         
+        $konto3=new konto();
         $konto3->Kontonummer="105020123456";
         $konto3->Personnummer="01010110523";
         $konto3->Saldo=100500;
@@ -108,10 +101,10 @@ function hentAlleKunder()
         $konto3->Valuta="NOK";
         
         $kontoListe[]=$konto3;
-        
-        
+
         return $kontoListe;
     }
+    
     function slettKonto($kontonummer)
     {
         if($kontonummer==-1){
@@ -119,13 +112,5 @@ function hentAlleKunder()
         }
         return "OK";
     }
-
-//endreKundeInfo
-//registrerKunde
-//slettKunde
-//registrerKonto
-//endreKonto
-//hentAlleKonti
-//slettKonto
 }
 ?>
