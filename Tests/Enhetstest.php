@@ -148,7 +148,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
         // arrange
         $adminLogikk = new adminLogikk(new AdminDBStub());
         $kunde = new kunde();
-        $kunde->Personnummer = "111111111";
+        $kunde->Personnummer = "11111111111";
         $kunde->Fornavn = "Lene";
         $kunde->Etternavn ="Jensen";
         $kunde->Adresse = "Askerveien 22";
@@ -176,7 +176,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
     {
         // arrange
         $adminLogikk = new adminLogikk(new AdminDBStub());
-        $personnummer= "111111111";
+        $personnummer= "11111111111";
         // act
         $OK = $adminLogikk->slettKunde($personnummer);
        // assert
@@ -207,8 +207,8 @@ class KundeTest extends PHPUnit\Framework\TestCase
         // arrange
         $adminLogikk=new adminLogikk(new AdminDBStub());
         $konto1 = new konto();
-        $konto1->Kontonummer = "105010123456";
-        $konto1->Personnummer = "111111111";  //Blir det riktig å skrive feil personnummer her?
+        $konto1->Kontonummer = "-1";
+        $konto1->Personnummer = "105010123456";  //Blir det riktig å skrive feil personnummer her?
         $konto1->Saldo = "720";
         $konto1->Type = "Lønnskonto"; //Kan vi ha ø?
         $konto1->Valuta = "NOK";
@@ -233,7 +233,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
     {
         // arrange
         $adminLogikk = new adminLogikk(new AdminDBStub());
-        $kontonummer= "111111111";
+        $kontonummer= "-1";
         // act
         $OK = $adminLogikk->slettKonto($kontonummer);
        // assert
@@ -263,7 +263,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
         // arrange
         $adminLogikk = new adminLogikk(new AdminDBStub());
         $konto1 = new konto();
-        $konto1->Kontonummer = "10";
+        $konto1->Kontonummer = "-1";
         $konto1->Personnummer = "01010110523";  //Blir det riktig å skrive feil personnummer her?
         $konto1->Saldo = "720";
         $konto1->Type = "Lønnskonto"; //Kan vi ha ø?
@@ -430,7 +430,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
         // arrange
         $bankLogikk=new bankLogikk(new DBStub());
         // act
-        $personnummer= "01010110523/";
+        $personnummer= "11111111111";
         $passord= "HeiHei";
         $OK = $bankLogikk->sjekkLoggInn($personnummer, $passord);
        // assert
@@ -443,7 +443,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $bankLogikk=new bankLogikk(new DBStub());
         // act
         $personnummer= "01010110523";
-        $passord= "HeiHei/";
+        $passord= "HaloHalo";
         $OK = $bankLogikk->sjekkLoggInn($personnummer, $passord);
        // assert
         $this->assertEquals("Feil",$OK); 
@@ -715,7 +715,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
         // arrange
         $bankLogikk = new bankLogikk(new DBStub());
         $kunde = new kunde();
-        $kunde->Personnummer = "111111111";
+        $kunde->Personnummer = "-1";
         $kunde->Fornavn = "Lene";
         $kunde->Etternavn ="Jensen";
         $kunde->Adresse = "Askerveien 22";
