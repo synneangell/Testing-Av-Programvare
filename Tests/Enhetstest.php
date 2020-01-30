@@ -465,7 +465,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $passord= "HeiHei";
         $OK = $bankLogikk->sjekkLoggInn($personnummer, $passord);
        // assert
-        $this->assertEquals("Feil i personnummer",$OK); 
+        $this->assertEquals("Feil",$OK); 
     }
     
     function test_sjekkLoggInn_RegEx_Feil_Passord() //personnummer og passord
@@ -477,7 +477,7 @@ class KundeTest extends PHPUnit\Framework\TestCase
         $passord= "HeiHei/";
         $OK = $bankLogikk->sjekkLoggInn($personnummer, $passord);
        // assert
-        $this->assertEquals("Feil i passord",$OK); 
+        $this->assertEquals("Feil",$OK); 
     }
     
     function test_sjekkLoggInn_Feil()
